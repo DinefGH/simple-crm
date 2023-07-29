@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Add User</h1>
+<div mat-dialog-content>
+
+    <div class="">
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-hint>Please enter a name</mat-hint>
+        </mat-form-field>
+
+
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-hint>Please enter a name</mat-hint>
+        </mat-form-field>
+
+
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>Birth Date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+
+          <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>Street + No.</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-hint>Please enter a Street</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>Zip Code</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-hint>Please enter a Code</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-hint>Please enter a City</mat-hint>
+        </mat-form-field>
+    </div>
+
+
+
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button>Cancel</button>
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial>Save</button>
+</div>

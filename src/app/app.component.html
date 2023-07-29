@@ -5,8 +5,8 @@
       </div>
       
       <ul class="menu-items">
-        <li><mat-icon fontIcon="dashboard"></mat-icon>Dashboard</li>
-        <li><mat-icon fontIcon="person"></mat-icon>User</li>
+        <li routerLink="" routerLinkActive="router-link-active"><mat-icon fontIcon="dashboard"></mat-icon>Dashboard</li>
+        <li routerLink="user" routerLinkActive="router-link-active"><mat-icon fontIcon="person"></mat-icon>User</li>
         <li></li>
       </ul>
     </mat-drawer>
@@ -18,6 +18,10 @@
               <span>Simple CRM</span>
             </mat-toolbar-row>
         </mat-toolbar>
+
+        <div class="router-container">
+        <router-outlet></router-outlet>
+        </div>
     </div>
   
   </mat-drawer-container>
