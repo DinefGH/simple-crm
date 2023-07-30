@@ -6,15 +6,22 @@
     <div class="">
         <mat-form-field class="mr-16" appearance="outline">
             <mat-label>First Name</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.firstName" matInput placeholder="Placeholder">
+            <input [disabled]="loading" [(ngModel)]="user.firstName" matInput placeholder="First Name">
             <mat-hint>Please enter a name</mat-hint>
         </mat-form-field>
 
 
         <mat-form-field class="mr-16" appearance="outline">
             <mat-label>Last Name</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.lastName" matInput placeholder="Placeholder">
+            <input [disabled]="loading" [(ngModel)]="user.lastName" matInput placeholder="Last Name">
             <mat-hint>Please enter a name</mat-hint>
+        </mat-form-field>
+
+
+        <mat-form-field class="mr-16" appearance="outline">
+            <mat-label>E-Mail</mat-label>
+            <input [disabled]="loading" [(ngModel)]="user.email" matInput placeholder="E-Mail">
+            <mat-hint>Please enter an e-mail</mat-hint>
         </mat-form-field>
 
 
@@ -29,19 +36,19 @@
 
           <mat-form-field class="mr-16" appearance="outline">
             <mat-label>Street + No.</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Placeholder">
+            <input [disabled]="loading" [(ngModel)]="user.street" matInput placeholder="Street">
             <mat-hint>Please enter a Street</mat-hint>
         </mat-form-field>
 
         <mat-form-field class="mr-16" appearance="outline">
             <mat-label>Zip Code</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Placeholder">
+            <input [disabled]="loading" [(ngModel)]="user.zipCode" matInput placeholder="Zip Code">
             <mat-hint>Please enter a Code</mat-hint>
         </mat-form-field>
 
         <mat-form-field class="mr-16" appearance="outline">
             <mat-label>City</mat-label>
-            <input [disabled]="loading" [(ngModel)]="user.city" matInput placeholder="Placeholder">
+            <input [disabled]="loading" [(ngModel)]="user.city" matInput placeholder="City">
             <mat-hint>Please enter a City</mat-hint>
         </mat-form-field>
     </div>
@@ -51,7 +58,7 @@
 
 </div>
 <div mat-dialog-actions>
-    <button [disabled]="loading" mat-button>Cancel</button>
+    <button [disabled]="loading" (click)="dialogRef.close()" mat-button>Cancel</button>
     <button [disabled]="loading" mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
 </div>
 </div>
