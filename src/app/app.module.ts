@@ -17,7 +17,27 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire/compat';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatCardModule} from '@angular/material/card';
 
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCUxwFH9TO3m4y7E1FPoSxDKtWlHDa8fpk",
+  authDomain: "simple-crm-c83cb.firebaseapp.com",
+  projectId: "simple-crm-c83cb",
+  storageBucket: "simple-crm-c83cb.appspot.com",
+  messagingSenderId: "714817168307",
+  appId: "1:714817168307:web:5d0acbb7f336313d6fa1c6"
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +59,16 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    FormsModule,
+    MatProgressBarModule,
+    MatCardModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideFunctions(() => getFunctions()),
+    provideStorage(() => getStorage()),
 
 
   ],
