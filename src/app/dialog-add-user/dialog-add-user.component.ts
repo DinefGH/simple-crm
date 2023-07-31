@@ -17,7 +17,6 @@ export class DialogAddUserComponent {
 
   saveUser() {
     this.user.birthDate = this.birthDate.getTime();
-    console.log('Current user is', this.user)
     this.loading = true;
     this.firestore
     .collection('users')
