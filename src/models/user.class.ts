@@ -20,7 +20,7 @@ export class User {
     }
 
     public toJSON() {
-        return {
+        const userJson: any = {
     firstName: this.firstName,
     customIdName: this.customIdName,
     email: this.email,
@@ -30,5 +30,14 @@ export class User {
     zipCode: this.zipCode,
     city: this.city,
         };
+
+
+        for (const key in userJson) {
+            if (userJson.hasOwnProperty(key) && userJson[key] === undefined) {
+              delete userJson[key];
+            }
+          }
+      
+          return userJson;
     }
 }
