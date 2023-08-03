@@ -2,36 +2,44 @@
 
 
     <button mat-icon-button class="pin-right-upper-corner" 
-     matTooltip="Edit User"  (click)="editUserDetail()">
+     matTooltip="Edit/Delete User" [matMenuTriggerFor]="menu">
         
         <mat-icon>more_vert</mat-icon>
       </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editUserDetail()">Edit User</button>
+        <button mat-menu-item>Delete User</button>
+      </mat-menu>
 
 
     <img src="assets/img/manager.png" alt="profile icon">
     <div class="user-details">
         <h2>{{user.firstName}} {{user.lastName}}</h2>
-        {{user.email}}
+        <div class="class-container">
+        <mat-icon aria-hidden="false" fontIcon="mail"></mat-icon>
+        <a class="none-link-decoration phone-class pb-8" 
+        [href]="'mailto:' + user.email"><span class="pb-8 pl-4">{{user.email}} </span></a>
+    </div>
+        <div class="class-container">
+        <mat-icon class="icon-phone" aria-hidden="false" fontIcon="call"></mat-icon>
+        <a class="none-link-decoration phone-class pb-8" 
+        [href]="'tel:' + user.phoneNumber"><span class="pb-8 pl-4">{{ user.phoneNumber }}</span></a>
+    </div>
+        <span class="pb-8">{{ user.birthDate | date: 'dd-MM-yyyy'}}</span>
+    
     </div>
 </mat-card>
 
 
-<mat-card class="mt-32">
-
-    <button mat-icon-button class="pin-right-upper-corner" 
-     matTooltip="Edit Adress" (click)="editUserAddress()">
-        
-        <mat-icon>more_vert</mat-icon>
-      </button>
+<mat-card>
 
 
-
-    <mat-card-header>
-        <mat-card-title>Address</mat-card-title>
+    <mat-card-header class="address-header">
+        <mat-card-title class="h2-Adress"><h2 class="h2-Adress">Address</h2></mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-        {{user.street}} <br>
-        {{user.zipCode}} {{user.city}}
+    <mat-card-content class="address-container">
+    <span>{{user.street}}</span> 
+<span>{{user.zipCode}} {{user.city}}</span>
     </mat-card-content>
 
 </mat-card>

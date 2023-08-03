@@ -17,3 +17,54 @@ body {
 .mt-32 {
     margin: 32px 0 0 0 ;
 }
+
+.pb-8 {
+    padding-bottom: 8px;
+}
+
+.pl-4 {
+    padding-left: 8px;
+}
+
+.none-link-decoration {
+    color: white;
+    text-decoration: none;
+}
+
+.icon-phone {
+    height: 2px;
+    overflow: auto;
+}
+
+.phone-container {
+    display: flex;
+}
+
+.class-container {
+    display: flex;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-48 {
+    width: 50%;
+}
+
+.w-50vw {
+    width: 30vw;
+}
+
+.w-42vw {
+    width: 42vw;
+}
+
+.priority-container {
+    display: flex;
+    justify-content: center;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}

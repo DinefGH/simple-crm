@@ -2,13 +2,21 @@
     <table class="user-table">
         <tr>
         <th>Name</th>
+        <th>Birthdate</th>
         <th>E-Mail</th>
+        <th>Phone number</th>
+        <th>Adress</th>
+        <th>Zipcode</th>
         <th>City</th>
         </tr>
         
         <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user.customIdName]">
             <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.birthDate | date: 'dd-MM-yyyy'}}</td>
             <td>{{ user.email }}</td>
+            <td>{{ user.phoneNumber }}</td>
+            <td>{{ user.street }}</td>
+            <td>{{ user.zipCode }}</td>
             <td>{{ user.city }}</td>
         </tr>
 

@@ -30,8 +30,13 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import {MatMenuModule} from '@angular/material/menu';
-import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { DatePipe } from '@angular/common';
+import { TasksComponent } from './tasks/tasks.component';
+import { DialogAddTasksComponent } from './dialog-add-tasks/dialog-add-tasks.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {FormControl, ReactiveFormsModule} from '@angular/forms';
 
 
 var firebaseConfig = {
@@ -49,8 +54,9 @@ var firebaseConfig = {
     UserComponent,
     DialogAddUserComponent,
     UserDetailComponent,
-    DialogEditAddressComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    TasksComponent,
+    DialogAddTasksComponent
   ],
   imports: [
     BrowserModule,
@@ -67,9 +73,13 @@ var firebaseConfig = {
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
+    ReactiveFormsModule,
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
+    DatePipe,
+    MatRadioModule,
+    MatAutocompleteModule,
     AngularFireModule.initializeApp(firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -80,7 +90,7 @@ var firebaseConfig = {
 
 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

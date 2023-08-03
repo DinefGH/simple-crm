@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { User } from 'src/models/user.class';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-user',
@@ -14,10 +15,11 @@ export class UserComponent implements OnInit{
   user: User = new User();
   allUsers: User[] = [];
   customIdName: User[] = [];
+  currentDate: any;
   
 
 
-  constructor(public dialog: MatDialog, private firestore: AngularFirestore) { }
+  constructor(private datePipe: DatePipe, public dialog: MatDialog, private firestore: AngularFirestore) { }
   ngOnInit(): void {
     this.firestore
     .collection('users')
@@ -26,6 +28,7 @@ export class UserComponent implements OnInit{
       console.log('Received changes from DB', changes)
       this.allUsers = changes;
     });
+
   }
 
 
