@@ -16,6 +16,7 @@ export class TasksComponent implements OnInit{
 tasks : Tasks = new Tasks()
 allTasks: Tasks[] = [];
 customIdTitle: Tasks[] = [];
+currentDate: any;
 
 
 constructor(private datePipe: DatePipe, public dialog: MatDialog, private firestore: AngularFirestore) { }
@@ -27,8 +28,9 @@ ngOnInit(): void {
     console.log('Received Tasks changes from DB', changes)
     this.allTasks = changes;
   });
-
 }
+
+
 openDialog() {
   this.dialog.open(DialogAddTasksComponent);
 }

@@ -1,0 +1,25 @@
+.tasks-detail-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pin-right-upper-corner {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.priority {
+border-radius: 8px;
+padding-top: 4px;
+padding-bottom: 4px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.category {
+    padding-bottom: 8px;
+    padding-top: 8px;
+}

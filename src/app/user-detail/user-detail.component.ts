@@ -21,7 +21,7 @@ export class UserDetailComponent implements OnInit{
   ngOnInit() {
     this.route.paramMap.subscribe( paramMap => {
       const id = this.userId = paramMap.get('id')!;
-      console.log('GOT ID', this.userId);
+      console.log('GOT User ID', this.userId);
       this.getUser();
   })
   }
@@ -39,7 +39,18 @@ export class UserDetailComponent implements OnInit{
   }
 
 
-
+  deleteUserDetail() {
+    this.firestore
+    .collection('users')
+    .doc(this.userId)
+    .delete()
+    .then(() => {
+        console.log('User successfully deleted!');
+    })
+    .catch((error) => {
+        console.error('Error removing user: ', error);
+    });
+}
  
 
   editUserDetail() {

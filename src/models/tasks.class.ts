@@ -12,7 +12,7 @@ export class Tasks {
         this.customIdTitle = obj ? obj.customIdTitle : '';
         this.descreption = obj ? obj.descreption : '';
         this.category = obj ? obj.category: '';
-        this.dueDate = obj ? obj.dueDate || null : null;
+        this.dueDate = obj ? obj.dueDate : '';
         this.priority = obj ? obj.priority: '';
         this.subtasks = obj ? obj.subtasks: '';
     }

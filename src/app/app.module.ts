@@ -38,6 +38,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import { TasksDetailComponent } from './tasks-detail/tasks-detail.component';
+import { DialogEditTasksComponent } from './dialog-edit-tasks/dialog-edit-tasks.component';
 
 
 var firebaseConfig = {
@@ -58,7 +59,8 @@ var firebaseConfig = {
     DialogEditUserComponent,
     TasksComponent,
     DialogAddTasksComponent,
-    TasksDetailComponent
+    TasksDetailComponent,
+    DialogEditTasksComponent
   ],
   imports: [
     BrowserModule,

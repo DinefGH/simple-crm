@@ -3,6 +3,7 @@
 html,
 body {
     height: 100%;
+    font-size: 1rem !important;
 }
 
 body {
@@ -14,12 +15,28 @@ body {
     margin-right: 16px;
 }
 
+.mr-8 {
+    margin-right: 8px; 
+}
+
+.bold {
+    font-weight: bold;
+}
+
 .mt-32 {
     margin: 32px 0 0 0 ;
 }
 
 .pb-8 {
     padding-bottom: 8px;
+}
+
+.pb-16 {
+    padding-bottom: 16px;
+}
+
+.p-8 {
+    padding: 8px;
 }
 
 .pl-4 {

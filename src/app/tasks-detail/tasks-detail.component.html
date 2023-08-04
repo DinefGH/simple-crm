@@ -1,1 +1,19 @@
-<p>tasks-detail works!</p>
+<mat-card class="tasks-detail-container">
+
+    <button mat-icon-button class="pin-right-upper-corner" 
+     matTooltip="Edit/Delete Tasks" [matMenuTriggerFor]="menu">
+        
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editTasksDetail()">Edit Tasks</button>
+        <button mat-menu-item [routerLink]="['/tasks/']" (click)="deleteTaskDetail()">Delete Tasks</button>
+      </mat-menu>
+      
+    <mat-card-content class="category mb-16" [ngStyle]="{'background-color': getBackgroundColorCategory(tasks.category)}"><h2>{{tasks.category}}</h2></mat-card-content>
+    <mat-card-content class="mb-16"><h1>{{tasks.title}}</h1></mat-card-content>
+    <mat-card-content class="mb-16">{{tasks.descreption}}</mat-card-content>
+    <mat-card-content class="mb-16"><span class="bold mr-8">Due Date:</span>{{tasks.dueDate | date: 'dd-MM-yyyy'}}</mat-card-content>
+    <mat-card-content class="mb-16" ><span class="bold mr-8">Priority:</span><span class="priority p-8" [ngStyle]="{'background-color': getBackgroundColorPriority(tasks.priority)}">{{tasks.priority}}</span></mat-card-content>
+    <mat-card-content class="mb-16"><span class="bold mr-8">Subtasks:</span>{{tasks.subtasks}}</mat-card-content>
+  </mat-card>

@@ -8,7 +8,7 @@
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="editUserDetail()">Edit User</button>
-        <button mat-menu-item>Delete User</button>
+        <button mat-menu-item [routerLink]="['/user/']" (click)="deleteUserDetail()">Delete User</button>
       </mat-menu>
 
 
@@ -25,7 +25,7 @@
         <a class="none-link-decoration phone-class pb-8" 
         [href]="'tel:' + user.phoneNumber"><span class="pb-8 pl-4">{{ user.phoneNumber }}</span></a>
     </div>
-        <span class="pb-8">{{ user.birthDate | date: 'dd-MM-yyyy'}}</span>
+        <span class="pb-8"><span class="mr-8 bold">Birthdate:</span>{{ user.birthDate | date: 'dd-MM-yyyy'}}</span>
     
     </div>
 </mat-card>

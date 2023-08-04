@@ -16,7 +16,6 @@ userId:  string | undefined = '';
 birthDate!: Date;
 
 saveEditUser(){
-  this.user.birthDate = this.birthDate.getTime();
     this.loading = true;
   this.firestore
   .collection('users')
