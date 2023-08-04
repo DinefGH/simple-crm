@@ -5,3 +5,54 @@
 }
 
 
+.tasks-table {
+    border-collapse: collapse;
+    margin-top: 16px;
+
+    tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        &:first-child {
+            cursor: unset;
+            &:hover {
+                background-color: unset;
+            }
+        }
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        cursor: pointer;
+
+        td {
+            height: 40px;
+
+            &:first-child {
+                padding: 0 0 0 16px;
+            }
+
+            
+        }
+
+        th {
+            &:first-child {
+                padding: 0 0 0 16px;
+            }
+        }
+            &:hover {
+                background-color:   rgba(255, 255, 255, 0.1);
+              }
+            
+        
+
+    }
+
+
+    th {
+        color: rgba(255, 255, 255, .6);
+        font-size: .875rem;
+        font-weight: 500;
+        text-align: start;
+        padding: 0 0 0px 0;
+    }
+}
+

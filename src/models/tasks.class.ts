@@ -1,5 +1,6 @@
 export class Tasks {
     title: string;
+    customIdTitle: string;
     descreption: string;
     category: string;
     dueDate: number;
@@ -8,9 +9,10 @@ export class Tasks {
 
     constructor (obj?: any) {
         this.title = obj ? obj.title: '';
+        this.customIdTitle = obj ? obj.customIdTitle : '';
         this.descreption = obj ? obj.descreption : '';
         this.category = obj ? obj.category: '';
-        this.dueDate = obj ? obj.dueDate: '';
+        this.dueDate = obj ? obj.dueDate || null : null;
         this.priority = obj ? obj.priority: '';
         this.subtasks = obj ? obj.subtasks: '';
     }
@@ -18,6 +20,7 @@ export class Tasks {
     public toJSON() {
         const tasksJson: any = {
     title: this.title,
+    customIdTitle: this.customIdTitle,
     descreption: this.descreption,
     category: this.category,
     dueDate: this.dueDate,
