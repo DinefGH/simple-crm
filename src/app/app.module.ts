@@ -39,6 +39,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import { TasksDetailComponent } from './tasks-detail/tasks-detail.component';
 import { DialogEditTasksComponent } from './dialog-edit-tasks/dialog-edit-tasks.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 var firebaseConfig = {
@@ -60,7 +62,8 @@ var firebaseConfig = {
     TasksComponent,
     DialogAddTasksComponent,
     TasksDetailComponent,
-    DialogEditTasksComponent
+    DialogEditTasksComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +87,7 @@ var firebaseConfig = {
     DatePipe,
     MatRadioModule,
     MatAutocompleteModule,
+    FullCalendarModule,
     AngularFireModule.initializeApp(firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
