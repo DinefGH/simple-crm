@@ -41,6 +41,7 @@ import { TasksDetailComponent } from './tasks-detail/tasks-detail.component';
 import { DialogEditTasksComponent } from './dialog-edit-tasks/dialog-edit-tasks.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { NewsComponent } from './news/news.component';
 
 
 var firebaseConfig = {
@@ -63,7 +64,8 @@ var firebaseConfig = {
     DialogAddTasksComponent,
     TasksDetailComponent,
     DialogEditTasksComponent,
-    CalendarComponent
+    CalendarComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

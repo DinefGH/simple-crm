@@ -10,7 +10,7 @@
         <button mat-menu-item [routerLink]="['/tasks/']" (click)="deleteTaskDetail()">Delete Tasks</button>
       </mat-menu>
       
-    <mat-card-content class="category mb-16" [ngStyle]="{'background-color': getBackgroundColorCategory(tasks.category)}"><h2>{{tasks.category}}</h2></mat-card-content>
+    <mat-card-content class="border-radius category mb-16" [ngStyle]="{'background-color': getBackgroundColorCategory(tasks.category)}"><h2>{{tasks.category}}</h2></mat-card-content>
     <mat-card-content class="mb-16"><h1>{{tasks.title}}</h1></mat-card-content>
     <mat-card-content class="mb-16">{{tasks.descreption}}</mat-card-content>
     <mat-card-content class="mb-16"><span class="bold mr-8">Due Date:</span>{{tasks.dueDate | date: 'dd-MM-yyyy'}}</mat-card-content>

@@ -1,0 +1,77 @@
+.dashboard-container {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.clock-date-container {
+    display: flex;
+    position: absolute;
+    top: 32px;
+    right: 16px;
+}
+
+.calender-week {
+margin-bottom: 8px;
+margin-top: 8px;
+}
+
+.date-container {
+    height: 100px;
+    width: 150px;
+    font-size: 1rem;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
+    &:hover {
+        cursor: pointer;
+    }
+
+}
+
+.overview-card {
+    height: 100px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 1.4rem;
+    &:hover {
+        background-color:   rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+    }
+}
+
+.overview-container {
+    display: flex;
+    gap: 16px;
+}
+
+.amount-dashboard {
+    padding-left: 6px;
+    padding-right: 6px;
+    color: rgb(215, 44, 107);
+}
+
+
+.digitalClock {
+    height: 100px;
+    width: 130px;
+    font-size: 1rem;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.numbers-clock-container {
+    display: flex;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}

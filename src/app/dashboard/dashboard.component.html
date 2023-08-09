@@ -1,3 +1,25 @@
-<div class="overview-card"><span> Users</span>{{ allUsers.length }}</div>
+<div class="dashboard-container">
+    <div class="clock-date-container"> 
+    <div class="digitalClock">
+        <div class="day">{{day}}</div>
+        <div class="numbers-clock-container">
+            <div class="hour">{{hour}}:</div>
+            <div class="minute">{{minute}}:</div>
+            <div class="second">{{second}}</div>
+        </div>
+    </div>
 
-<div><span> Tasks</span>{{ allTasks.length }}</div>
+
+    
+    <div class="date-container" routerLink="calendar" routerLinkActive="router-link-active">
+    <div>{{currentDateString}}</div>
+    <div class="calender-week">Calender week: {{calenderweek}}</div>
+    </div>
+</div>
+
+    <div class="overview-container">
+        <div class="overview-card" routerLink="user" routerLinkActive="router-link-active">There are<span class="amount-dashboard">{{allUsers.length}}</span>users on your board</div>
+        <div class="overview-card" routerLink="tasks" routerLinkActive="router-link-active">There are<span class="amount-dashboard">{{allTasks.length}}</span>tasks on your board</div>
+</div>
+
+</div>

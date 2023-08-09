@@ -1,6 +1,7 @@
 .tasks-detail-container {
     display: flex;
     justify-content: center;
+    border-radius: 4px;
 }
 
 .pin-right-upper-corner {
@@ -13,6 +14,10 @@
 border-radius: 8px;
 padding-top: 4px;
 padding-bottom: 4px;
+}
+
+.border-radius {
+border-radius: 4px;
 }
 
 .bold {

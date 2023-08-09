@@ -5,6 +5,7 @@ import { User } from 'src/models/user.class';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { DatePipe } from '@angular/common';
 import { Tasks } from 'src/models/tasks.class';
+import { getWeek, format } from 'date-fns';
 
 
 @Component({
@@ -21,6 +22,23 @@ export class DashboardComponent {
   tasks : Tasks = new Tasks()
 allTasks: Tasks[] = [];
 customIdTitle: Tasks[] = [];
+
+private daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+private date = new Date();
+public hour: any;
+public minute!: string;
+public second!: string;
+public day!: string;
+
+public currentDateString!: string;
+public calenderweek!: number;
+
+
+
+
+
+
+
   
 
 
@@ -42,5 +60,31 @@ customIdTitle: Tasks[] = [];
     this.allTasks = changes;
   });
 
+  setInterval (() => {
+    const date = new Date();
+    this.updateDate(date);
+  }, 1000);
+
+  this.day = this.daysArray[this.date.getDay()];
+
+  this.updateDateInfo();
+  }
+
+  private updateDate(date: Date) {
+    const hours = date.getHours();
+    this.hour = hours < 10 ? '0' + hours : hours.toString();
+
+    const minutes = date.getMinutes();
+    this.minute = minutes < 10 ? '0' +minutes : minutes.toString();
+
+    const seconds = date.getSeconds();
+    this.second = seconds < 10 ? '0' + seconds : seconds.toString();
+  }
+
+
+  private updateDateInfo(): void {
+    const now = new Date();
+    this.currentDateString = format(now, 'dd.MM.yyyy'); // Display date in "dd.mm.yyyy" format
+    this.calenderweek = getWeek(now);
   }
 }
