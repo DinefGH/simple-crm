@@ -15,6 +15,7 @@ import { getWeek, format } from 'date-fns';
 })
 export class DashboardComponent {
 
+  greetMessage: string = '';
   user: User = new User();
   allUsers: User[] = [];
   customIdName: User[] = [];
@@ -63,11 +64,16 @@ public calenderweek!: number;
   setInterval (() => {
     const date = new Date();
     this.updateDate(date);
+    console.log(this.date )
   }, 1000);
+
 
   this.day = this.daysArray[this.date.getDay()];
 
   this.updateDateInfo();
+
+
+  this.setGreetingMessage();
   }
 
   private updateDate(date: Date) {
@@ -87,4 +93,19 @@ public calenderweek!: number;
     this.currentDateString = format(now, 'dd.MM.yyyy'); // Display date in "dd.mm.yyyy" format
     this.calenderweek = getWeek(now);
   }
+
+
+  setGreetingMessage() {
+    let hour = new Date().getHours();
+
+    if (hour >= 0 && hour < 12) {
+      this.greetMessage = "Good morning, ";
+    } else if (hour >= 12 && hour < 17) {
+      this.greetMessage = "Good afternoon, ";
+    } else if (hour >= 17 && hour < 24) {
+      this.greetMessage = "Good evening, ";
+    }
+    // ... your other conditions ...
+  }
 }
+

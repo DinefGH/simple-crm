@@ -16,6 +16,7 @@ export class UserComponent implements OnInit{
   allUsers: User[] = [];
   customIdName: User[] = [];
   currentDate: any;
+  searchTerm: string = '';
   
 
 
@@ -31,6 +32,14 @@ export class UserComponent implements OnInit{
 
   }
 
+  get filteredUsers(): any[] {
+    if (!this.searchTerm) return this.allUsers;
+    return this.allUsers.filter(user => 
+      (user.firstName + ' ' + user.lastName).toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      user.email.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      user.phoneNumber.toString().includes(this.searchTerm)  
+    );
+}
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);

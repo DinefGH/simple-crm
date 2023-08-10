@@ -1,4 +1,9 @@
 <mat-card>
+
+    <mat-form-field class="search-input">
+        <input matInput [(ngModel)]="searchTerm" placeholder="Search users...">
+    </mat-form-field>
+
     <table class="tasks-table">
         <tr>
         <th>Title</th>
@@ -9,7 +14,7 @@
         <th>Subtasks</th>
         </tr>
         
-        <tr *ngFor="let tasks of allTasks" [routerLink]="['/tasks/' + tasks.customIdTitle]">
+        <tr *ngFor="let tasks of filteredTasks" [routerLink]="['/tasks/' + tasks.customIdTitle]">
             <td>{{ tasks.title }}</td>
             <td>{{ tasks.category }}</td>
             <td>{{ tasks.descreption }}</td>

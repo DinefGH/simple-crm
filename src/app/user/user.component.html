@@ -1,4 +1,14 @@
+<div class="user-headline">
+    User 
+</div>
+
 <mat-card>
+    
+
+    <mat-form-field class="search-input">
+        <input matInput [(ngModel)]="searchTerm" placeholder="Search users...">
+    </mat-form-field>
+
     <table class="user-table">
         <tr>
         <th>Name</th>
@@ -10,7 +20,7 @@
         <th>City</th>
         </tr>
         
-        <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user.customIdName]">
+        <tr *ngFor="let user of filteredUsers" [routerLink]="['/user/' + user.customIdName]">
             <td>{{ user.firstName }} {{ user.lastName }}</td>
             <td>{{ user.birthDate | date: 'dd-MM-yyyy'}}</td>
             <td>{{ user.email }}</td>

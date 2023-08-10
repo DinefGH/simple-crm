@@ -4,11 +4,28 @@ flex-direction: column;
 gap: 16px;
 }
 
+.name-clock-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.1);
+    align-items: center;
+   padding-left: 16px;
+
+}
+
+.name-container {
+    display: flex;
+    align-items: center;
+}
+
+.greeting-time {
+    font-size: 1.4rem;
+   
+}
+
 .clock-date-container {
     display: flex;
-    position: absolute;
-    top: 32px;
-    right: 16px;
+
 }
 
 .calender-week {
@@ -20,7 +37,6 @@ margin-top: 8px;
     height: 100px;
     width: 150px;
     font-size: 1rem;
-    margin-top: 32px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,6 +65,7 @@ margin-top: 8px;
 .overview-container {
     display: flex;
     gap: 16px;
+    margin-top: 36px;
 }
 
 .amount-dashboard {
@@ -62,12 +79,11 @@ margin-top: 8px;
     height: 100px;
     width: 130px;
     font-size: 1rem;
-    margin-top: 32px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     border-radius: 4px;
+    justify-content: center;
 }
 
 .numbers-clock-container {

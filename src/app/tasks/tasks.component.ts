@@ -17,6 +17,7 @@ tasks : Tasks = new Tasks()
 allTasks: Tasks[] = [];
 customIdTitle: Tasks[] = [];
 currentDate: any;
+searchTerm: string = '';
 
 
 constructor(private datePipe: DatePipe, public dialog: MatDialog, private firestore: AngularFirestore) { }
@@ -30,6 +31,19 @@ ngOnInit(): void {
   });
 }
 
+
+get filteredTasks(): any[] {
+  if (!this.searchTerm) return this.allTasks;
+  return this.allTasks.filter(tasks => {
+    const dueDateString = this.datePipe.transform(tasks.dueDate, 'dd-MM-yyyy');
+    return tasks.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      tasks.category.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      tasks.descreption.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      (dueDateString && dueDateString.includes(this.searchTerm)) ||
+      tasks.priority.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+      tasks.subtasks.toString().includes(this.searchTerm);
+  });
+}
 
 openDialog() {
   this.dialog.open(DialogAddTasksComponent);
