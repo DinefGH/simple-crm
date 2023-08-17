@@ -42,6 +42,13 @@ import { DialogEditTasksComponent } from './dialog-edit-tasks/dialog-edit-tasks.
 import { CalendarComponent } from './calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { NewsComponent } from './news/news.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { NgChartsModule } from 'ng2-charts';
+import { ChartDashComponent } from './chart-dash/chart-dash.component';
+
+
+
 
 
 var firebaseConfig = {
@@ -65,7 +72,9 @@ var firebaseConfig = {
     TasksDetailComponent,
     DialogEditTasksComponent,
     CalendarComponent,
-    NewsComponent
+    NewsComponent,
+    SignInComponent,
+    ChartDashComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +99,7 @@ var firebaseConfig = {
     MatRadioModule,
     MatAutocompleteModule,
     FullCalendarModule,
+    NgChartsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -97,6 +107,7 @@ var firebaseConfig = {
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),
     provideStorage(() => getStorage()),
+    AngularFireAuthModule,
 
 
   ],

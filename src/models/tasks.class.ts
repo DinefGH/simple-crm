@@ -6,6 +6,7 @@ export class Tasks {
     dueDate: number;
     priority: string;
     subtasks: string;
+    status: string;
 
     constructor (obj?: any) {
         this.title = obj ? obj.title: '';
@@ -15,6 +16,7 @@ export class Tasks {
         this.dueDate = obj ? obj.dueDate : '';
         this.priority = obj ? obj.priority: '';
         this.subtasks = obj ? obj.subtasks: '';
+        this.status = obj ? obj.status: '';
     }
 
     public toJSON() {
@@ -26,6 +28,7 @@ export class Tasks {
     dueDate: this.dueDate,
     priority: this.priority,
     subtasks: this.subtasks,
+    status: this.status,
         };
 
 

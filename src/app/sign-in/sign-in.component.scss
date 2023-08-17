@@ -1,0 +1,23 @@
+.sign-in-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recover-password-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
