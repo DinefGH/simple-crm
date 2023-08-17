@@ -11,17 +11,35 @@
 
     <table class="user-table">
         <tr>
-        <th>Name</th>
-        <th>Birthdate</th>
-        <th>E-Mail</th>
-        <th>Phone number</th>
-        <th>Adress</th>
-        <th>Zipcode</th>
-        <th>City</th>
+            <th (click)="onHeaderClick('firstName')">First Name
+                <span *ngIf="sortField === 'firstName'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('lastName')">Last Name 
+                <span *ngIf="sortField === 'lastName'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('birthdate')">Birthdate 
+                <span *ngIf="sortField === 'birthdate'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('email')">E-Mail 
+                <span *ngIf="sortField === 'email'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('phoneNumber')">Phone number 
+                <span *ngIf="sortField === 'phoneNumber'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('street')">Adress 
+                <span *ngIf="sortField === 'street'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('zipCode')">Zipcode 
+                <span *ngIf="sortField === 'zipCode'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('city')">City 
+                <span *ngIf="sortField === 'city'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
         </tr>
         
         <tr *ngFor="let user of filteredUsers" [routerLink]="['/user/' + user.customIdName]">
-            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
             <td>{{ user.birthDate | date: 'dd-MM-yyyy'}}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.phoneNumber }}</td>

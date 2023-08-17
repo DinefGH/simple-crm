@@ -71,7 +71,6 @@ import { DialogEditTasksComponent } from '../dialog-edit-tasks/dialog-edit-tasks
         case 'Sales': return 'yellow';
         case 'Marketing': return 'orange';
         case 'Backoffice': return 'purple';
-        // ... and so on for the rest of your categories
         default: return 'white';  // default color for unrecognized categories
       }
     }
@@ -81,12 +80,20 @@ import { DialogEditTasksComponent } from '../dialog-edit-tasks/dialog-edit-tasks
 
     getBackgroundColorPriority(priority: string): string {
       switch (priority) {
-        case 'Urgent': return 'red';
-        case 'Medium': return 'orange';
-        case 'Low': return 'green';
+        case 'Urgent': return 'rgb(255, 61, 0)';
+        case 'Medium': return 'rgb(255, 168, 0)';
+        case 'Low': return 'rgb(122, 226, 41)';
         // ... and so on for the rest of your categories
         default: return 'white';  // default color for unrecognized categories
   }
   }
+
+  getBackgroundColorStatus(status: string): string {
+    switch (status) {
+      case 'open': return 'red';
+      case 'done': return 'blue';
+      default: return 'white';  // default color for unrecognized categories
+}
+}
 }
   

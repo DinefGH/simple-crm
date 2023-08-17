@@ -27,6 +27,16 @@
                 <mat-hint>Please enter a Category</mat-hint>
               </mat-form-field>
 
+
+              <div class="w-100 priority-container">
+                <mat-radio-group [(ngModel)]="tasks.priority" class="mr-16 w-100" appearance="outline">
+                  <mat-label>Priority</mat-label>
+                  <mat-radio-button value="Urgent" >Urgent</mat-radio-button>
+                  <mat-radio-button value="Medium" >Medium</mat-radio-button>
+                  <mat-radio-button value="Low" >Low</mat-radio-button>
+                </mat-radio-group>
+              </div>
+
               <mat-form-field class="mr-16 mb-16 w-100" appearance="outline">
                 <mat-label>Subtask</mat-label>
                 <input [disabled]="loading" [(ngModel)]="tasks.subtasks" matInput placeholder="Subtask">
@@ -41,12 +51,6 @@
                 <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
               </mat-form-field>
 
-              <!-- <mat-form-field class="mr-16" appearance="outline">
-                <mat-label>Category</mat-label>
-                <input [disabled]="loading" [(ngModel)]="tasks.category" matInput placeholder="Category">
-                <mat-hint>Please enter a category</mat-hint>
-            </mat-form-field> -->
-
             <mat-form-field class="mr-16 mb-16 w-100" appearance="outline">
                 <mat-label>Due Date</mat-label>
                 <input [disabled]="loading" [(ngModel)]="dueDate" matInput [matDatepicker]="picker">
@@ -56,13 +60,11 @@
               </mat-form-field>
 
               <div class="w-100 priority-container">
-              <mat-radio-group [(ngModel)]="tasks.priority" class="mr-16 w-100" appearance="outline">
-                <mat-label>Priority</mat-label>
-                <mat-radio-button value="Urgent" >Urgent</mat-radio-button>
-                <mat-radio-button value="Medium" >Medium</mat-radio-button>
-                <mat-radio-button value="Low" >Low</mat-radio-button>
-              </mat-radio-group>
-            </div>
+                <mat-radio-group [(ngModel)]="tasks.status" class="mr-16 w-100" appearance="outline">
+                  <mat-label>Status</mat-label>
+                  <mat-radio-button value="open">Open</mat-radio-button>
+                </mat-radio-group>
+              </div>
               
         </div>
 

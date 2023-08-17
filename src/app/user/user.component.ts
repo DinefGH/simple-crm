@@ -12,6 +12,8 @@ import { DatePipe } from '@angular/common';
 })
 export class UserComponent implements OnInit{
 
+  sortField: string | null = null; // This tracks which field we're sorting by (e.g., 'title', 'priority')
+  sortOrder: 'asc' | 'desc' = 'asc'; // This tracks the sort direction
   user: User = new User();
   allUsers: User[] = [];
   customIdName: User[] = [];
@@ -43,5 +45,32 @@ export class UserComponent implements OnInit{
 
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
+  }
+  onHeaderClick(field: string): void {
+    if (this.sortField === field) {
+        // If already sorting by this field, toggle the sort order
+        this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    } else {
+        this.sortField = field;
+        this.sortOrder = 'asc';
+    }
+    this.applySorting();
+  }
+  
+  applySorting(): void {
+    const sortField = this.sortField; // assign to a local variable
+  
+    if (sortField) {
+        this.allUsers.sort((a, b) => {
+          const aValue = (a as any)[sortField];
+          const bValue = (b as any)[sortField];
+  
+            if (!aValue || !bValue) return 0;
+  
+            const comparison = aValue.toString().localeCompare(bValue.toString());
+  
+            return this.sortOrder === 'asc' ? comparison : -comparison;
+        });
+    }
   }
 }

@@ -60,3 +60,11 @@
         padding: 0 0 0px 0;
     }
 }
+
+th {
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1); 
+    }
+}

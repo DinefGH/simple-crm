@@ -16,4 +16,5 @@
     <mat-card-content class="mb-16"><span class="bold mr-8">Due Date:</span>{{tasks.dueDate | date: 'dd-MM-yyyy'}}</mat-card-content>
     <mat-card-content class="mb-16" ><span class="bold mr-8">Priority:</span><span class="priority p-8" [ngStyle]="{'background-color': getBackgroundColorPriority(tasks.priority)}">{{tasks.priority}}</span></mat-card-content>
     <mat-card-content class="mb-16"><span class="bold mr-8">Subtasks:</span>{{tasks.subtasks}}</mat-card-content>
+    <mat-card-content class="mb-16" ><span class="bold mr-8">Status:</span><span class="priority p-8" [ngStyle]="{'background-color': getBackgroundColorStatus(tasks.status)}">{{tasks.status}}</span></mat-card-content>
   </mat-card>

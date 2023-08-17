@@ -6,12 +6,27 @@
 
     <table class="tasks-table">
         <tr>
-        <th>Title</th>
-        <th>Category</th>
-        <th>Descreption</th>
-        <th>Due Date</th>
-        <th>Priority</th>
-        <th>Subtasks</th>
+            <th (click)="onHeaderClick('title')">Title 
+                <span *ngIf="sortField === 'title'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('category')">Category 
+                <span *ngIf="sortField === 'category'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('descreption')">Descreption 
+                <span *ngIf="sortField === 'descreption'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('dueDate')">Due Date 
+                <span *ngIf="sortField === 'dueDate'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('priority')">Priority 
+                <span *ngIf="sortField === 'priority'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('subtasks')">Subtasks 
+                <span *ngIf="sortField === 'subtasks'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('status')">Status 
+                <span *ngIf="sortField === 'status'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
         </tr>
         
         <tr *ngFor="let tasks of filteredTasks" [routerLink]="['/tasks/' + tasks.customIdTitle]">
@@ -21,6 +36,7 @@
             <td>{{ tasks.dueDate | date: 'dd-MM-yyyy'}}</td>
             <td>{{ tasks.priority }}</td>
             <td>{{ tasks.subtasks }}</td>
+            <td>{{ tasks.status }}</td>
         </tr>
 
     </table>
