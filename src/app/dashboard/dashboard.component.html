@@ -35,7 +35,22 @@
     <div class="overview-container">
         <div class="overview-card" routerLink="user" routerLinkActive="router-link-active">You have<span class="amount-dashboard">{{allUsers.length}}</span>users on your board</div>
         <div class="overview-card" routerLink="tasks" routerLinkActive="router-link-active">You have<span class="amount-dashboard">{{allTasks.length}}</span>tasks on your board</div>
-</div>
+    </div> 
+        
+    <div class="overview-container">
+        <div class="overview-card" routerLink="tasks" routerLinkActive="router-link-active">You have<span class="amount-dashboard">{{ getUrgentTaskCount() }}</span>urgent tasks on your board</div>
+        
+        
+        <div class="overview-card" routerLink="tasks" routerLinkActive="router-link-active">
+            <div class="text-progress-container">
+            You have<span class="amount-dashboard">{{ getDoneTaskCount() }}</span>
+            <span class="amount-dashboard">/ {{allTasks.length}}</span>tasks done
+            <div class="progress-bar-background">
+                <div class="progress-bar-fill" [style.width]="getProgressPercentage() + '%'"></div>
+            </div>
+        </div>
+        </div>
+    </div>
 
 
 <app-chart-dash></app-chart-dash>

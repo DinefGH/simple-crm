@@ -1,3 +1,33 @@
+<div class="chart-overview-container">
+        
+<div class="target-progress-container">
+
+        <div class="invoiced-container"> 
+                <span>Invoiced</span>
+        </div>
+      
+ 
+
+<div class="target-container">
+
+        <div class="annual-container">
+     <span class="h1">€ <b>{{ getSumOfData1() }}</b> M</span>
+     <span>Annual Year Target</span>
+</div>
+     <div class="progress-bar-background">
+        <div class="progress-bar-fill" [style.width]="(getSumOfData1() / 7 * 100) + '%'"></div>
+    </div>
+
+
+        <div class="progress-target-container">
+
+        <span class="progress-in-procent">{{ Math.round(getSumOfData1() / 7 * 100) + '%' }}</span>
+        <span class="target">€<b>7</b>M</span>
+
+        </div>
+
+</div>
+</div>
 <canvas class="chart-container" baseChart
         [data]="barChartData"
         [options]="barChartOptions"
@@ -5,4 +35,60 @@
         [legend]="barChartLegend"
         [type]="'bar'">
 </canvas>
+
+
+<div class="customer-container">
+        <span>By Customer</span>
+<div class="-customer-progress-container">
+        <div class="progress-target-container">
+
+                <span class="progress-in-procent">TechFusion Corp.</span>
+                <span class="target">€{{Math.round(getSumTechFusion())}}M</span>
+        
+                
+        </div>
+        <div class="progress-bar-background">
+                <div class="progress-bar-fill" [style.width]="(getSumTechFusion() / 7 * 100) + '%'"></div>
+            </div>
+        
+</div>
+<div class="-customer-progress-container">
+        <div class="progress-target-container">
+
+                <span class="progress-in-procent">GreenEarth Energies</span>
+                <span class="target">€{{getSumGreenEarth()}}M</span>
+                
+        </div>
+        <div class="progress-bar-background">
+                <div class="progress-bar-fill" [style.width]="(getSumGreenEarth() / 7 * 100) + '%'"></div>
+            </div>
+        
+</div>
+<div class="-customer-progress-container">
+        <div class="progress-target-container">
+
+                <span class="progress-in-procent">Nova Pharmaceuticals</span>
+                <span class="target">€{{getSumNova()}}M</span>
+        
+        </div> 
+        <div class="progress-bar-background">
+                <div class="progress-bar-fill" [style.width]="(getSumNova() / 7 * 100) + '%'"></div>
+            </div>
+        
+</div>
+         <div class="-customer-progress-container">
+                <div class="progress-target-container">
+
+                        <span class="progress-in-procent">Galactic AeroSystems</span>
+                        <span class="target">€{{getSumGalactic()}}M</span>
+                
+                </div> 
+        <div class="progress-bar-background">
+                <div class="progress-bar-fill" [style.width]="(getSumGalactic() / 7 * 100) + '%'"></div>
+            </div>
+         
+</div>
+</div>
+</div> 
+
 

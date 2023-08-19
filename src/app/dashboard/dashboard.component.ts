@@ -18,6 +18,7 @@ import { ChartConfiguration } from 'chart.js';
 })
 export class DashboardComponent {
 
+  tasksList: Tasks[] = [];
   greetMessage: string = '';
   user: User = new User();
   allUsers: User[] = [];
@@ -38,32 +39,6 @@ public currentDateString!: string;
 public calenderweek!: number;
 
 
-public barChartLegend = true;
-public barChartPlugins = [];
-
-public barChartData: ChartConfiguration<'bar'>['data'] = {
-  labels: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
-  datasets: [
-    { data: [ 0.2, 0.5, 0.7, 0.1, 0.8, 0.4, 1.0, 0.8, 0.8, 0.2, 0.6, 0.7 ], label: '2021', backgroundColor: [ 'rgb(1, 209, 255)' ] },
-    { data: [ 0.4, 0.8, 0.2, 0.6, 0.4, 1.0, 0.8, 0.2, 0.6, 0.4, 0.2, 0.8 ], label: '2022', backgroundColor: [ 'rgb(229, 200, 82)' ]  }
-  ]
-};
-
-public barChartOptions: ChartConfiguration<'bar'>['options'] = {
-  responsive: false,
-  scales: {
-    y: {
-      beginAtZero: true,
-      ticks: {
-        stepSize: 0.2,
-        // Use a callback function to format the tick labels
-        callback: function(value) {
-          return '$' + value + 'M';
-        }
-      }
-    }
-  }
-};
 
   constructor(private datePipe: DatePipe, public dialog: MatDialog, private firestore: AngularFirestore) { }
   ngOnInit(): void {
@@ -81,6 +56,7 @@ public barChartOptions: ChartConfiguration<'bar'>['options'] = {
   .subscribe(( changes: any) => {
     console.log('Received Tasks changes from DB', changes)
     this.allTasks = changes;
+    this.tasksList = this.allTasks;
   });
 
   setInterval (() => {
@@ -102,7 +78,7 @@ public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     this.hour = hours < 10 ? '0' + hours : hours.toString();
 
     const minutes = date.getMinutes();
-    this.minute = minutes < 10 ? '0' +minutes : minutes.toString();
+    this.minute = minutes < 10 ? '0' + minutes : minutes.toString();
 
     const seconds = date.getSeconds();
     this.second = seconds < 10 ? '0' + seconds : seconds.toString();
@@ -126,7 +102,26 @@ public barChartOptions: ChartConfiguration<'bar'>['options'] = {
     } else if (hour >= 17 && hour < 24) {
       this.greetMessage = "Good evening, ";
     }
-    // ... your other conditions ...
   }
+
+  getUrgentTaskCount(): number {
+    return this.tasksList.filter(task => task.priority === 'Urgent').length;
+}
+
+
+getDoneTaskCount(): number {
+  return this.tasksList.filter(task => task.status === 'done').length;
+}
+
+
+getProgressPercentage(): number {
+  let doneTasks = this.getDoneTaskCount();
+  let totalTasks = this.allTasks.length;
+
+  // Ensure you're not dividing by zero
+  if(totalTasks === 0) return 0;
+
+  return (doneTasks / totalTasks) * 100;
+}
 }
 
