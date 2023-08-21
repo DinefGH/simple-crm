@@ -1,0 +1,67 @@
+<mat-card>
+
+    <mat-form-field class="search-input">
+        <input matInput [(ngModel)]="searchTerm" placeholder="Search customer...">
+    </mat-form-field>
+
+    <table class="customer-table">
+        <tr>
+            <th (click)="onHeaderClick('customerName')">CustomerName 
+                <span *ngIf="sortField === 'customerName'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('email')">Email 
+                <span *ngIf="sortField === 'email'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('phoneNumber')">PhoneNumber 
+                <span *ngIf="sortField === 'phoneNumber'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('contact')">Contact 
+                <span *ngIf="sortField === 'contact'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('website')">Website 
+                <span *ngIf="sortField === 'website'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('street')">Adress 
+                <span *ngIf="sortField === 'street'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('zipCode')">Zipcode 
+                <span *ngIf="sortField === 'zipCode'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('city')">City 
+                <span *ngIf="sortField === 'city'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('country')">Country 
+                <span *ngIf="sortField === 'country'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('about')">About 
+                <span *ngIf="sortField === 'about'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('invoiced')">Invoiced 
+                <span *ngIf="sortField === 'invoiced'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+        </tr>
+        
+        <tr *ngFor="let customer of filteredCustomer" [routerLink]="['/customer/' + customer.customIdCustomerName]">
+            <td>{{ customer.customerName }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.phoneNumber }}</td>
+            <td>{{ customer.contact }}</td>
+            <td>{{ customer.website }}</td>
+            <td>{{ customer.street }}</td>
+            <td>{{ customer.zipCode }}</td>
+            <td>{{ customer.city }}</td>
+            <td>{{ customer.country }}</td>
+            <td>{{ customer.about }}</td>
+            <td>{{ customer.invoiced }}</td>
+
+        </tr>
+
+    </table>
+  </mat-card>
+
+
+
+<button (click)="openDialog()" class="add-tasks-btn" mat-fab color="primary" matTooltipPosition="above"
+    matTooltip="Add customer">
+    <mat-icon fontIcon="add"></mat-icon>
+</button>

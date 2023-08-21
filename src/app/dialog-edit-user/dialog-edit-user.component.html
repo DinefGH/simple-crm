@@ -52,6 +52,12 @@
                 <mat-hint>Please enter a City</mat-hint>
             </mat-form-field>
     
+
+            <mat-form-field class="mb-16 w-48" appearance="outline">
+                <mat-label>Customer</mat-label>
+                <input [disabled]="loading" [(ngModel)]="user.customer" matInput placeholder="Customer">
+                <mat-hint>Please enter customer</mat-hint>
+            </mat-form-field>
         </div>
 
 

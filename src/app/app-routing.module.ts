@@ -7,7 +7,8 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TasksDetailComponent } from './tasks-detail/tasks-detail.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent  },
@@ -18,6 +19,9 @@ const routes: Routes = [
   {path: 'tasks/:id', component: TasksDetailComponent  },
   {path: 'calendar', component: CalendarComponent},
   {path: 'sign-in', component: SignInComponent},
+  {path: 'customer', component: CustomerComponent  },
+  {path: 'customer/:id', component: CustomerDetailComponent  },
+
 ];
 
 @NgModule({

@@ -46,6 +46,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartDashComponent } from './chart-dash/chart-dash.component';
+import { DialogAddCustomerComponent } from './dialog-add-customer/dialog-add-customer.component';
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
+import { DialogEditCustomerComponent } from './dialog-edit-customer/dialog-edit-customer.component';
 
 
 
@@ -75,6 +79,10 @@ var firebaseConfig = {
     NewsComponent,
     SignInComponent,
     ChartDashComponent,
+    DialogAddCustomerComponent,
+    CustomerComponent,
+    CustomerDetailComponent,
+    DialogEditCustomerComponent,
   ],
   imports: [
     BrowserModule,

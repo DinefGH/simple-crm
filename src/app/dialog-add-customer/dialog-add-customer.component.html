@@ -1,0 +1,90 @@
+<div class="dialog-container w-42vw">
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    <h1 mat-dialog-title>Add Customer</h1>
+    <div mat-dialog-content>
+    
+        <div class="">
+            <mat-form-field class="mb-16 w-48" appearance="outline">
+                <mat-label>Customer</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.customerName" matInput placeholder="Customer">
+                <mat-hint>Please enter Customer</mat-hint>
+            </mat-form-field>
+    
+    
+            <mat-form-field class="mb-16 w-48" appearance="outline">
+                <mat-label>E-Mail</mat-label>
+                <input type="email" [disabled]="loading" [(ngModel)]="customer.email" matInput placeholder="E-Mail">
+                <mat-hint>Please enter an e-mail</mat-hint>
+            </mat-form-field>
+    
+
+            <mat-form-field class="mb-16 w-48" appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input type="tel" [disabled]="loading" [(ngModel)]="customer.phoneNumber" matInput placeholder="Number">
+                <mat-hint>Please enter phone number</mat-hint>
+            </mat-form-field>
+
+
+            <mat-form-field class="mb-16 w-48" appearance="outline">
+                <mat-label>Contact</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.contact" matInput placeholder="Contact">
+                <mat-hint>Please enter Contact</mat-hint>
+            </mat-form-field>
+
+            
+    
+
+            <mat-form-field class="mb-16 w-48" appearance="outline">
+                <mat-label>website</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.website" matInput placeholder="Website">
+                <mat-hint>Please enter Website</mat-hint>
+            </mat-form-field>
+
+    
+              <mat-form-field class="mb-16 w-100" appearance="outline">
+                <mat-label>Street + No.</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.street" matInput placeholder="Street">
+                <mat-hint>Please enter a Street</mat-hint>
+            </mat-form-field>
+    
+            <mat-form-field class=" w-48" appearance="outline">
+                <mat-label>Zip Code</mat-label>
+                <input maxlength="5" [disabled]="loading" [(ngModel)]="customer.zipCode" matInput placeholder="Zip Code">
+                <mat-hint>Please enter a Code</mat-hint>
+            </mat-form-field>
+    
+            <mat-form-field class=" w-48" appearance="outline">
+                <mat-label>City</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.city" matInput placeholder="City">
+                <mat-hint>Please enter a City</mat-hint>
+            </mat-form-field>
+    
+            <mat-form-field class=" w-48" appearance="outline">
+                <mat-label>Country</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.country" matInput placeholder="Country">
+                <mat-hint>Please enter a Country</mat-hint>
+            </mat-form-field>
+    
+            <mat-form-field class="mb-16 w-48" appearance="outline">
+                <mat-label>About</mat-label>
+                <input [disabled]="loading" [(ngModel)]="customer.about" matInput placeholder="About">
+                <mat-hint>Please enter About</mat-hint>
+            </mat-form-field>
+
+
+            <mat-form-field class="mb-16 w-48" appearance="outline">
+                <mat-label>Invoiced in M</mat-label>
+                <input type="number" [disabled]="loading" [(ngModel)]="customer.invoiced" matInput placeholder="invoiced">
+                <mat-hint>Please enter Invoiced in M</mat-hint>
+            </mat-form-field>
+        </div>
+    
+    
+    
+    
+    </div>
+    <div mat-dialog-actions>
+        <button [disabled]="loading" (click)="dialogRef.close()" mat-button>Cancel</button>
+        <button [disabled]="loading" mat-button (click)="saveCustomer()" cdkFocusInitial>Save</button>
+    </div>
+    </div>

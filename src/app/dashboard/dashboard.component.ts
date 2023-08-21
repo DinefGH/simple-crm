@@ -5,6 +5,7 @@ import { User } from 'src/models/user.class';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { DatePipe } from '@angular/common';
 import { Tasks } from 'src/models/tasks.class';
+import { Customer } from 'src/models/customer.class';
 import { getWeek, format } from 'date-fns';
 import { ChartOptions } from 'chart.js';
 import { ChartConfiguration } from 'chart.js';
@@ -27,6 +28,10 @@ export class DashboardComponent {
   tasks : Tasks = new Tasks()
 allTasks: Tasks[] = [];
 customIdTitle: Tasks[] = [];
+customer: Customer = new Customer();
+  allCustomer: Customer[] = [];
+  customIdCustomerName: Customer[] = [];
+
 
 private daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 private date = new Date();
@@ -58,6 +63,17 @@ public calenderweek!: number;
     this.allTasks = changes;
     this.tasksList = this.allTasks;
   });
+
+  this.firestore
+  .collection('customers')
+  .valueChanges({idField: 'customIdCustomerName'})
+  .subscribe(( changes: any) => {
+    console.log('Received Customer changes from DB', changes)
+    this.allCustomer = changes;
+  });
+
+
+  
 
   setInterval (() => {
     const date = new Date();

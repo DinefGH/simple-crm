@@ -1,0 +1,47 @@
+<mat-card class="customer-detail-header">
+
+
+    <button mat-icon-button class="pin-right-upper-corner" 
+     matTooltip="Edit/Delete Customer" [matMenuTriggerFor]="menu">
+        
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editCustomerDetail()">Edit Customer</button>
+        <button mat-menu-item [routerLink]="['/customer/']" (click)="deleteCustomerDetail()">Delete Customer</button>
+      </mat-menu>
+
+
+      
+    <div class="customer-details">
+        <mat-card-content class="border-radius category mb-16" [ngStyle]="{'background-color': getBackgroundColorCategory(customer.customerName)}"><h2>{{customer.customerName}}</h2></mat-card-content>
+        <h2>{{customer.contact}}</h2>
+        <div class="class-container">
+        <mat-icon aria-hidden="false" fontIcon="mail"></mat-icon>
+        <a class="none-link-decoration phone-class pb-8" 
+        [href]="'mailto:' + customer.email"><span class="pb-8 pl-4">{{customer.email}} </span></a>
+        <a class="none-link-decoration phone-class pb-8" 
+        [href]="'mailto:' + customer.website"><span class="pb-8 pl-4">{{customer.website}} </span></a>
+    </div>
+        <div class="class-container">
+        <mat-icon class="icon-phone" aria-hidden="false" fontIcon="call"></mat-icon>
+        <a class="none-link-decoration phone-class pb-8" 
+        [href]="'tel:' + customer.phoneNumber"><span class="pb-8 pl-4">{{ customer.phoneNumber }}</span></a>
+    </div>
+    
+    </div>
+</mat-card>
+
+<mat-card-header class="address-header">
+    <mat-card-title class="h2-Adress"><h2 class="h2-Adress">Address</h2></mat-card-title>
+</mat-card-header>
+<mat-card-content class="address-container">
+<span>{{customer.street}}</span> 
+<span>{{customer.zipCode}} {{customer.city}}</span>
+<span>{{customer.country}} {{customer.country}}</span>
+</mat-card-content>
+
+
+<mat-card-content class="border-radius category mb-16" [ngStyle]="{'background-color': getBackgroundColorCategory(customer.customerName)}"><h2>{{customer.customerName}}</h2></mat-card-content>
+<mat-card-content class="mb-16">{{customer.about}}</mat-card-content>
+<mat-card-content class="mb-16">{{customer.invoiced}}</mat-card-content>
