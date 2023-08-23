@@ -65,3 +65,9 @@ th {
     }
 }
 
+.truncate-text{
+    white-space: nowrap;        /* Prevents the text from wrapping into new lines */
+    overflow: hidden;          /* Hides the text that overflows the container */
+    text-overflow: ellipsis;   /* Display ... when the text is truncated */
+    max-width: 150px;  
+}

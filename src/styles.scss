@@ -15,12 +15,20 @@ body {
     margin-right: 16px;
 }
 
+.mr-0 {
+    margin: 0 !important;
+}
+
 .mr-8 {
     margin-right: 8px; 
 }
 
 .bold {
     font-weight: bold;
+}
+
+.pt-4 {
+    padding-top: 4px;
 }
 
 .mt-32 {

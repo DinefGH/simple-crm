@@ -65,10 +65,10 @@ import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit
 
     getBackgroundColorCategory(customerName: string): string {
       switch (customerName) {
-        case 'TechFusion Corp.': return 'blue';
-        case 'GreenEarth Energies': return 'red';
-        case 'Galactic AeroSystems': return 'green';
-        case 'Nova Pharmaceuticals': return 'yellow';
+        case 'TechFusion Corp.': return '#928f61';
+        case 'GreenEarth Energies': return '#639261';
+        case 'Galactic AeroSystems': return '#926164';
+        case 'Nova Pharmaceuticals': return '#696969';
         default: return 'white';  // default color for unrecognized categories
       }
     }

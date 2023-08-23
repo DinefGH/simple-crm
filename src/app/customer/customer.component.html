@@ -18,41 +18,17 @@
             <th (click)="onHeaderClick('contact')">Contact 
                 <span *ngIf="sortField === 'contact'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
             </th>
-            <th (click)="onHeaderClick('website')">Website 
-                <span *ngIf="sortField === 'website'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('street')">Adress 
-                <span *ngIf="sortField === 'street'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('zipCode')">Zipcode 
-                <span *ngIf="sortField === 'zipCode'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('city')">City 
-                <span *ngIf="sortField === 'city'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('country')">Country 
-                <span *ngIf="sortField === 'country'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('about')">About 
-                <span *ngIf="sortField === 'about'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
             <th (click)="onHeaderClick('invoiced')">Invoiced 
                 <span *ngIf="sortField === 'invoiced'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
             </th>
         </tr>
         
         <tr *ngFor="let customer of filteredCustomer" [routerLink]="['/customer/' + customer.customIdCustomerName]">
-            <td>{{ customer.customerName }}</td>
-            <td>{{ customer.email }}</td>
-            <td>{{ customer.phoneNumber }}</td>
-            <td>{{ customer.contact }}</td>
-            <td>{{ customer.website }}</td>
-            <td>{{ customer.street }}</td>
-            <td>{{ customer.zipCode }}</td>
-            <td>{{ customer.city }}</td>
-            <td>{{ customer.country }}</td>
-            <td>{{ customer.about }}</td>
-            <td>{{ customer.invoiced }}</td>
+            <td class="truncate-text">{{ customer.customerName }}</td>
+            <td class="truncate-text">{{ customer.email }}</td>
+            <td  class="truncate-text">{{ customer.phoneNumber }}</td>
+            <td  class="truncate-text">{{ customer.contact }}</td>
+            <td class="truncate-text">{{ customer.invoiced }}</td>
 
         </tr>
 
