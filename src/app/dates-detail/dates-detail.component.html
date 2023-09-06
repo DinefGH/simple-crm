@@ -1,0 +1,15 @@
+<mat-card class="dates-detail-container">
+
+    <button mat-icon-button class="pin-right-upper-corner" 
+     matTooltip="Edit/Delete Dates" [matMenuTriggerFor]="menu">
+        
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="editDatesDetail()">Edit Dates</button>
+        <button mat-menu-item [routerLink]="['/dates/']" (click)="deleteDatesDetail()">Delete Dates</button>
+      </mat-menu>
+      
+    <mat-card-content class="border-radius dates-header-background category mb-16"><h2>{{dates.dateName}}</h2></mat-card-content>
+    <mat-card-content class="mb-16"><span class="bold mr-8">Due Date:</span>{{dates.datesDate | date: 'dd-MM-yyyy'}}</mat-card-content>
+  </mat-card>

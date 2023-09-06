@@ -9,6 +9,10 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
+import { DatesComponent } from './dates/dates.component';
+import { DatesDetailComponent } from './dates-detail/dates-detail.component';
+
+
 
 const routes: Routes = [
   {path: '', component: DashboardComponent  },
@@ -20,7 +24,10 @@ const routes: Routes = [
   {path: 'calendar', component: CalendarComponent},
   {path: 'sign-in', component: SignInComponent},
   {path: 'customer', component: CustomerComponent  },
+  {path: 'dates', component: DatesComponent  },
+  {path: 'dates/:id', component: DatesDetailComponent  },
   {path: 'customer/:id', component: CustomerDetailComponent  },
+
 
 ];
 

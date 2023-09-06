@@ -19,6 +19,12 @@ body {
     margin: 0 !important;
 }
 
+.fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
 .mr-8 {
     margin-right: 8px; 
 }

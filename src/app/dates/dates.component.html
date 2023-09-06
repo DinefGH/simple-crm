@@ -1,0 +1,33 @@
+<div class="dates-headline">
+    Dates
+</div>
+
+<mat-card>
+    
+
+    <mat-form-field class="search-input">
+        <input matInput [(ngModel)]="searchTerm" placeholder="Search dates...">
+    </mat-form-field>
+
+    <table class="dates-table">
+        <tr>
+            <th (click)="onHeaderClick('dateName')">Date Name
+                <span *ngIf="sortField === 'dateName'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+            <th (click)="onHeaderClick('datesDate')">DatesDate 
+                <span *ngIf="sortField === 'datesDate'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
+        </tr>
+        
+        <tr *ngFor="let dates of filteredDates" [routerLink]="['/dates/' + dates.customIdDates]">
+            <td>{{ dates.dateName }}</td>
+            <td>{{ dates.datesDate | date: 'dd-MM-yyyy'}}</td>
+        </tr>
+    </table>
+  </mat-card>
+  
+
+<button (click)="openDialog()" class="add-dates-btn" mat-fab color="primary" matTooltipPosition="above"
+    matTooltip="Add dates">
+    <mat-icon fontIcon="add"></mat-icon>
+</button>

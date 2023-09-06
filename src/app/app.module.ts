@@ -50,6 +50,10 @@ import { DialogAddCustomerComponent } from './dialog-add-customer/dialog-add-cus
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import { DialogEditCustomerComponent } from './dialog-edit-customer/dialog-edit-customer.component';
+import { DatesComponent } from './dates/dates.component';
+import { DialogAddDatesComponent } from './dialog-add-dates/dialog-add-dates.component';
+import { DialogEditDatesComponent } from './dialog-edit-dates/dialog-edit-dates.component';
+import { DatesDetailComponent } from './dates-detail/dates-detail.component';
 
 
 
@@ -83,6 +87,10 @@ var firebaseConfig = {
     CustomerComponent,
     CustomerDetailComponent,
     DialogEditCustomerComponent,
+    DatesComponent,
+    DialogAddDatesComponent,
+    DialogEditDatesComponent,
+    DatesDetailComponent,
   ],
   imports: [
     BrowserModule,
