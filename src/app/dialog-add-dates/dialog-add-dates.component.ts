@@ -14,9 +14,11 @@ export class DialogAddDatesComponent {
   dates = new Dates();
   datesDate!: Date;
   loading = false;
+  timeValue!: string;
 
   saveDates() {
     this.dates.datesDate = this.datesDate.getTime();
+    this.dates.timeValue = this.timeValue; 
     this.loading = true;
     this.firestore
     .collection('dates')

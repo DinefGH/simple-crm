@@ -40,4 +40,11 @@ export class Tasks {
       
           return tasksJson;
     }
+
+    toCalendarEvent() {
+        return {
+            title: this.title,
+            date: this.dueDate,
+        };
+    }
 }

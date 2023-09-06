@@ -2,11 +2,13 @@ export class Dates {
     dateName: string;
     datesDate: number;
     customIdDates: string;
+    timeValue: string;
 
     constructor (obj?: any) {
         this.dateName = obj ? obj.dateName: '';
         this.datesDate = obj ? obj.datesDate: '';
         this.customIdDates = obj ? obj.customIdDates : '';
+        this.timeValue = obj ? obj.timeValue : '';
     }
 
 
@@ -15,6 +17,7 @@ export class Dates {
             dateName: this.dateName,
             customIdDates: this.customIdDates,
     datesDate: this.datesDate,
+    timeValue: this.timeValue,
         };
 
 
@@ -30,7 +33,8 @@ export class Dates {
     toCalendarEvent() {
         return {
             title: this.dateName,
-            date: this.datesDate // You might need to format this date to 'YYYY-MM-DD' format
+            date: this.datesDate,
+            timeValue: this.timeValue,
         };
     }
 }

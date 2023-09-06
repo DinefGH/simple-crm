@@ -54,7 +54,7 @@ import { DatesComponent } from './dates/dates.component';
 import { DialogAddDatesComponent } from './dialog-add-dates/dialog-add-dates.component';
 import { DialogEditDatesComponent } from './dialog-edit-dates/dialog-edit-dates.component';
 import { DatesDetailComponent } from './dates-detail/dates-detail.component';
-
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 
 
@@ -116,6 +116,7 @@ var firebaseConfig = {
     MatAutocompleteModule,
     FullCalendarModule,
     NgChartsModule,
+    NgxMaterialTimepickerModule,
     AngularFireModule.initializeApp(firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
