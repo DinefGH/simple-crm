@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';import { ChartOptions } from 'chart.js';
 import { ChartConfiguration } from 'chart.js';
-
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddCustomerComponent } from '../dialog-add-customer/dialog-add-customer.component';
+import { Customer } from 'src/models/customer.class';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-chart-dash',
   templateUrl: './chart-dash.component.html',
@@ -9,6 +13,33 @@ import { ChartConfiguration } from 'chart.js';
 
 
 export class ChartDashComponent {
+
+  
+  sortField: string | null = null; // This tracks which field we're sorting by (e.g., 'title', 'priority')
+  sortOrder: 'asc' | 'desc' = 'asc'; // This tracks the sort direction
+  customer: Customer = new Customer();
+  allCustomer: Customer[] = [];
+  customIdCustomerName: Customer[] = [];
+  currentDate: any;
+  searchTerm: string = '';
+  constructor(private firestore: AngularFirestore) { }
+
+  ngOnInit(): void {
+    this.firestore
+      .collection('customers')
+      .valueChanges({idField: 'customIdCustomerName'})
+      .subscribe((changes: any) => {
+        console.log('Received changes from DB', changes);
+        this.allCustomer = changes;
+      });
+  }
+
+  selectedCustomer!: Customer;
+
+  get invoiced(): string {
+    return `${this.selectedCustomer?.invoiced}`;
+}
+
 
 Math = Math; 
   public barChartLegend = true;
@@ -55,20 +86,4 @@ getSumOfData1(): number {
     : 0;
 }
 
-
-getSumTechFusion(): number{
-return 4
-}
-
-getSumGreenEarth(): number{
-  return 1.5
-  }
-
-getSumNova(): number{
-    return 0.4
-    }
-
-getSumGalactic(): number{
-      return 0.4
-      }   
 }

@@ -39,56 +39,22 @@
 
 <div class="customer-container">
         <span>By Customer</span>
-<div class="-customer-progress-container">
-        <div class="progress-target-container">
-
-                <span class="progress-in-procent">TechFusion Corp.</span>
-                <span class="target">€{{Math.round(getSumTechFusion())}}M</span>
-        
-                
+      
+        <div *ngFor="let customer of allCustomer" class="-customer-progress-container">
+          <div class="progress-target-container">
+            <span class="progress-in-procent">{{ customer.customerName }}</span>
+            <span class="target">€{{ customer.invoiced.toFixed(1) }}M</span>
+          </div>
+          <div class="progress-bar-background">
+            <div class="progress-bar-fill" [style.width]="(customer.invoiced / 7 * 100) + '%'"></div>
+          </div>
         </div>
-        <div class="progress-bar-background">
-                <div class="progress-bar-fill" [style.width]="(getSumTechFusion() / 7 * 100) + '%'"></div>
-            </div>
-        
-</div>
-<div class="-customer-progress-container">
-        <div class="progress-target-container">
-
-                <span class="progress-in-procent">GreenEarth Energies</span>
-                <span class="target">€{{getSumGreenEarth()}}M</span>
-                
-        </div>
-        <div class="progress-bar-background">
-                <div class="progress-bar-fill" [style.width]="(getSumGreenEarth() / 7 * 100) + '%'"></div>
-            </div>
-        
-</div>
-<div class="-customer-progress-container">
-        <div class="progress-target-container">
-
-                <span class="progress-in-procent">Nova Pharmaceuticals</span>
-                <span class="target">€{{getSumNova()}}M</span>
-        
-        </div> 
-        <div class="progress-bar-background">
-                <div class="progress-bar-fill" [style.width]="(getSumNova() / 7 * 100) + '%'"></div>
-            </div>
-        
-</div>
-         <div class="-customer-progress-container">
-                <div class="progress-target-container">
-
-                        <span class="progress-in-procent">Galactic AeroSystems</span>
-                        <span class="target">€{{getSumGalactic()}}M</span>
-                
-                </div> 
-        <div class="progress-bar-background">
-                <div class="progress-bar-fill" [style.width]="(getSumGalactic() / 7 * 100) + '%'"></div>
-            </div>
-         
-</div>
-</div>
-</div> 
+      </div>
+      
+      
+      
+      
+      
+      
 
 
