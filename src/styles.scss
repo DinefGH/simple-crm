@@ -33,11 +33,19 @@ body {
 }
 
 .bold {
-    font-weight: bold;
+    font-weight: 600;
+}
+
+.s-bold {
+    font-weight: 500 !important;
 }
 
 .pt-4 {
     padding-top: 4px;
+}
+
+.mt-16 {
+    margin-top: 16px !important;
 }
 
 .mt-32 {
@@ -101,4 +109,8 @@ body {
 
 .mb-16 {
     margin-bottom: 16px;
+}
+
+.word-break {
+    word-break: break-all;  
 }

@@ -3,6 +3,9 @@ import { Customer } from 'src/models/customer.class';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
+
+
+
 @Component({
   selector: 'app-dialog-edit-customer',
   templateUrl: './dialog-edit-customer.component.html',
@@ -16,14 +19,14 @@ customerId:  string | undefined = '';
 birthDate!: Date;
 
 saveEditCustomer(){
-    this.loading = true;
+  this.loading = true;
   this.firestore
   .collection('customers')
-  .doc(this.customerId)
-  .update(this.customer.toJSON())
-  .then(() => {
-  this.loading = false;
-  this.dialogRef.close();
-});
+  .add(this.customer.toJSON())
+  .then((result: any) => {
+    this.loading = false;
+    console.log('Adding customer finished', result);
+    this.dialogRef.close();
+  });
 }
 }

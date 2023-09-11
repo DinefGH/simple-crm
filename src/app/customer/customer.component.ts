@@ -4,6 +4,7 @@ import { DialogAddCustomerComponent } from '../dialog-add-customer/dialog-add-cu
 import { Customer } from 'src/models/customer.class';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { DatePipe } from '@angular/common';
+import { User } from 'src/models/user.class';
 
 @Component({
   selector: 'app-customer',
@@ -19,10 +20,12 @@ export class CustomerComponent implements OnInit{
   customIdCustomerName: Customer[] = [];
   currentDate: any;
   searchTerm: string = '';
+
   
 
 
   constructor(private datePipe: DatePipe, public dialog: MatDialog, private firestore: AngularFirestore) { }
+  
   ngOnInit(): void {
     this.firestore
     .collection('customers')

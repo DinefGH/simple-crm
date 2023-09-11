@@ -25,18 +25,6 @@
             </mat-form-field>
 
 
-            <mat-form-field appearance="outline">
-                <mat-label>Select Contact</mat-label>
-                <mat-select [(ngModel)]="customer.contact">
-                    <mat-option *ngFor="let user of filteredUsers" [value]="user">
-                        {{ user.firstName }} {{ user.lastName }}
-                    </mat-option>
-                </mat-select>
-              </mat-form-field>
-
-            
-    
-
             <mat-form-field class="mb-16 w-48" appearance="outline">
                 <mat-label>website</mat-label>
                 <input [disabled]="loading" [(ngModel)]="customer.website" matInput placeholder="Website">

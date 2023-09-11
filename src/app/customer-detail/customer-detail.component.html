@@ -1,59 +1,41 @@
-<mat-card class="customer-detail-header">
+<mat-card class="customer-detail-container">
 
-
-  <div class="customer-detail-button-header" [ngStyle]="{'background-color': getBackgroundColorCategory(customer.customerName)}">
-
-  <span class="border-radius category" ><h2 class="mr-0">{{customer.customerName}}</h2></span>
-
-  <a class="none-link-decoration phone-class" 
-  [href]="'mailto:' + customer.website"><span class="pl-4">{{customer.website}} </span></a>
-
-  <span>Invoiced: {{customer.invoiced}}</span>
-
-    <button mat-icon-button class="pin-right-upper-corner" 
-     matTooltip="Edit/Delete Customer" [matMenuTriggerFor]="menu">
-        
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="editCustomerDetail()">Edit Customer</button>
-        <button mat-menu-item [routerLink]="['/customer/']" (click)="deleteCustomerDetail()">Delete Customer</button>
-      </mat-menu>
-    </div>
-
+  <button mat-icon-button class="pin-right-upper-corner" 
+   matTooltip="Edit/Delete Tasks" [matMenuTriggerFor]="menu">
       
-    <mat-card-content class="customer-details">
-      <span class="h2-Adress"><h2 class="h2-Adress">Contact:</h2></span>
-        <span>{{customer.contact}}</span>
-        <div class="class-container">
-        <mat-icon aria-hidden="false" fontIcon="mail"></mat-icon>
-        <a class="none-link-decoration phone-class pb-8" 
-        [href]="'mailto:' + customer.email"><span class="pb-8 pl-4">{{customer.email}} </span></a>
-        
-    </div>
-        <div class="class-container">
-        <mat-icon class="icon-phone" aria-hidden="false" fontIcon="call"></mat-icon>
-        <a class="none-link-decoration phone-class pb-8" 
-        [href]="'tel:' + customer.phoneNumber"><span class="pb-8 pl-4">{{ customer.phoneNumber }}</span></a>
-    </div>
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="editCustomerDetail()">Edit Customer</button>
+      <button mat-menu-item [routerLink]="['/tasks/']" (click)="deleteCustomerDetail()">Delete Customer</button>
+    </mat-menu>
     
-    </mat-card-content>
+  <mat-card-content class="border-radius category mb-16" [ngStyle]="{'background-color': getBackgroundColorCategory(customer.customerName)}"><h1 class="bold">{{customer.customerName}}</h1></mat-card-content>
+  <mat-card-content class="mb-16"><h2 class="bold mt-16">Customer Informations:</h2></mat-card-content>
+  <mat-card-content class="mb-16">{{customer.about}}</mat-card-content>
+  
 
-
-
-<mat-card-content class="customer-details background-adress">
-  <span class="h2-Adress"><h2 class="h2-Adress">Address:</h2></span>
-<span>{{customer.street}}</span> 
-<span>{{customer.zipCode}} {{customer.city}}</span>
-<span>{{customer.country}}</span>
+  <mat-card-content class="mb-16"><span class="mr-8">Invoiced:</span>{{customer.invoiced}}M</mat-card-content>
+  
+  <mat-card-content class="mb-16"><a class="none-link-decoration word-break website" 
+    [href]="'mailto:' + customer.website">{{customer.website}}</a></mat-card-content>
+  <mat-card-content class="mb-16"><h2 class="bold mt-16">Contact:</h2></mat-card-content>
+  <mat-card-content class="mb-16">
+  <div class="class-container">
+    <mat-icon aria-hidden="false" fontIcon="mail"></mat-icon>
+    <a class="none-link-decoration word-break phone-class pb-8" 
+    [href]="'mailto:' + customer.email"><span class="pb-8 pl-4">{{customer.email}} </span></a>
+    </div>
 </mat-card-content>
-
-<mat-card-content class="customer-details background-about">
-<span class="h2-Adress"><h2 class="h2-Adress">About:</h2></span>
-<span>{{customer.about}}</span>
+<mat-card-content class="mb-16">
+<div class="class-container">
+<mat-icon class="icon-phone" aria-hidden="false" fontIcon="call"></mat-icon>
+<a class="none-link-decoration phone-class pb-8" 
+[href]="'tel:' + customer.phoneNumber"><span class="pb-8 pl-4">{{ customer.phoneNumber }}</span></a>
+</div>
 </mat-card-content>
-
-
-
-<mat-card-content class="mb-16"></mat-card-content>
+<mat-card-content class="mb-16"><h2 class="bold mt-16">Adress:</h2></mat-card-content>
+<mat-card-content class="mb-16">{{customer.street}}</mat-card-content>
+  <mat-card-content class="mb-16">{{customer.zipCode}} {{customer.city}}</mat-card-content>
+  <mat-card-content class="mb-16">{{customer.country}}</mat-card-content>
 </mat-card>

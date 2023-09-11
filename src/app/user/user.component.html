@@ -35,9 +35,6 @@
             <th (click)="onHeaderClick('city')">City 
                 <span *ngIf="sortField === 'city'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
             </th>
-            <th (click)="onHeaderClick('customer')">Customer 
-                <span *ngIf="sortField === 'customer'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
         </tr>
         
         <tr *ngFor="let user of filteredUsers" [routerLink]="['/user/' + user.customIdName]">
@@ -49,7 +46,6 @@
             <td>{{ user.street }}</td>
             <td>{{ user.zipCode }}</td>
             <td>{{ user.city }}</td>
-            <td>{{ user.customer }}</td>
         </tr>
     </table>
   </mat-card>
