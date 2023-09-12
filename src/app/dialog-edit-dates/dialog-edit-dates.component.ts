@@ -18,15 +18,20 @@ export class DialogEditDatesComponent {
   datesId:  string | undefined = '';
   datesDate!: Date;
 
-saveEditDates(){
-    this.loading = true;
+/**
+ * Saves the edited date details to Firestore.
+ * Updates the date document in the 'usdatesers' collection with the provided dates ID.
+ * Closes the dialog once the update is successful.
+ */
+saveEditDates() {
+  this.loading = true;
   this.firestore
-  .collection('usdatesers')
-  .doc(this.datesId)
-  .update(this.dates.toJSON())
-  .then(() => {
-  this.loading = false;
-  this.dialogRef.close();
-});
+    .collection('usdatesers')
+    .doc(this.datesId)
+    .update(this.dates.toJSON())
+    .then(() => {
+      this.loading = false;
+      this.dialogRef.close();
+    });
 }
 }

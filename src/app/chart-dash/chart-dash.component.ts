@@ -24,6 +24,11 @@ export class ChartDashComponent {
   searchTerm: string = '';
   constructor(private firestore: AngularFirestore) { }
 
+
+  /**
+ * Angular lifecycle hook to initialize the component.
+ * Fetches the list of customers from Firestore and updates the allCustomer array.
+ */
   ngOnInit(): void {
     this.firestore
       .collection('customers')
@@ -34,17 +39,35 @@ export class ChartDashComponent {
       });
   }
 
+  /** 
+ * Selected customer details.
+ * @type {Customer}
+ */
   selectedCustomer!: Customer;
 
+
+  /**
+ * Getter function to return the invoiced value of the selected customer.
+ * @returns {string} - Invoiced value.
+ */
   get invoiced(): string {
     return `${this.selectedCustomer?.invoiced}`;
 }
 
-
+/**
+ * Represents the built-in Math object, allowing you to use mathematical functionality.
+ * @type {Math}
+ */
 Math = Math; 
+
+// Charting properties
   public barChartLegend = true;
 public barChartPlugins = [];
 
+
+/**
+ * Chart configurations for displaying bar charts.
+ */
 public barChartData: ChartConfiguration<'bar'>['data'] = {
   labels: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
   datasets: [
@@ -54,6 +77,9 @@ public barChartData: ChartConfiguration<'bar'>['data'] = {
 };
 
 
+/**
+ * Additional options to configure the bar chart.
+ */
 public barChartOptions: ChartConfiguration<'bar'>['options'] = {
   responsive: false,
   scales: {
@@ -70,6 +96,11 @@ public barChartOptions: ChartConfiguration<'bar'>['options'] = {
   }
 };
 
+
+/**
+ * Gets the sum of the data points for the dataset labeled '2023'.
+ * @returns {number} - The sum of the data points.
+ */
 getSumOfData1(): number {
   let dataset2023 = this.barChartData.datasets.find(dataset => dataset.label === '2023');
 

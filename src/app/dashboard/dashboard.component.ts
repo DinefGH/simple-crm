@@ -46,6 +46,11 @@ public calenderweek!: number;
 
 
   constructor(private datePipe: DatePipe, public dialog: MatDialog, private firestore: AngularFirestore) { }
+  
+  
+  /**
+ * Initializes the component, sets up Firestore subscriptions, and initial configurations.
+ */
   ngOnInit(): void {
     this.firestore
     .collection('users')
@@ -55,6 +60,8 @@ public calenderweek!: number;
       this.allUsers = changes;
     });
 
+
+      // Subscribe to tasks collection
     this.firestore
   .collection('tasks')
   .valueChanges({idField: 'customIdTitle'})
@@ -64,6 +71,8 @@ public calenderweek!: number;
     this.tasksList = this.allTasks;
   });
 
+
+   // Subscribe to customers collection
   this.firestore
   .collection('customers')
   .valueChanges({idField: 'customIdCustomerName'})
@@ -74,21 +83,24 @@ public calenderweek!: number;
 
 
   
-
+ // Initialize and update the date every second
   setInterval (() => {
     const date = new Date();
     this.updateDate(date);
   }, 1000);
 
 
+  // Other initial configurations
   this.day = this.daysArray[this.date.getDay()];
-
   this.updateDateInfo();
-
-
   this.setGreetingMessage();
   }
 
+
+  /**
+ * Updates the displayed hour, minute, and second.
+ * @param {Date} date - The current date object.
+ */
   private updateDate(date: Date) {
     const hours = date.getHours();
     this.hour = hours < 10 ? '0' + hours : hours.toString();
@@ -101,13 +113,18 @@ public calenderweek!: number;
   }
 
 
+  /**
+ * Updates the displayed date information.
+ */
   private updateDateInfo(): void {
     const now = new Date();
     this.currentDateString = format(now, 'dd.MM.yyyy'); // Display date in "dd.mm.yyyy" format
     this.calenderweek = getWeek(now);
   }
 
-
+/**
+ * Sets the greeting message based on the current time.
+ */
   setGreetingMessage() {
     let hour = new Date().getHours();
 
@@ -120,16 +137,30 @@ public calenderweek!: number;
     }
   }
 
+
+  /**
+ * Calculates the number of tasks with 'Urgent' priority.
+ * @returns {number} - The number of urgent tasks.
+ */
   getUrgentTaskCount(): number {
     return this.tasksList.filter(task => task.priority === 'Urgent').length;
 }
 
 
+
+/**
+ * Calculates the number of tasks that are done.
+ * @returns {number} - The number of tasks that are done.
+ */
 getDoneTaskCount(): number {
   return this.tasksList.filter(task => task.status === 'done').length;
 }
 
 
+/**
+ * Calculates the progress percentage based on the number of done tasks.
+ * @returns {number} - The percentage of tasks that are done.
+ */
 getProgressPercentage(): number {
   let doneTasks = this.getDoneTaskCount();
   let totalTasks = this.allTasks.length;

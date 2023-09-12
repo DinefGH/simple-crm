@@ -26,6 +26,11 @@ export class CustomerComponent implements OnInit{
 
   constructor(private datePipe: DatePipe, public dialog: MatDialog, private firestore: AngularFirestore) { }
   
+
+  /**
+ * Angular lifecycle hook that gets executed when the component is initialized.
+ * Fetches the list of customers from Firestore and updates the allCustomer array.
+ */
   ngOnInit(): void {
     this.firestore
     .collection('customers')
@@ -34,9 +39,13 @@ export class CustomerComponent implements OnInit{
       console.log('Received changes from DB', changes)
       this.allCustomer = changes;
     });
-
   }
 
+
+  /**
+ * Filters the list of all customers based on the search term.
+ * @returns {any[]} - Returns the filtered array of customers.
+ */
   get filteredCustomer(): any[] {
     if (!this.searchTerm) return this.allCustomer;
     return this.allCustomer.filter(customer => 
@@ -48,14 +57,21 @@ export class CustomerComponent implements OnInit{
     );
 }
 
+
+/**
+ * Opens a dialog for adding a new customer.
+ */
   openDialog() {
     this.dialog.open(DialogAddCustomerComponent);
   }
 
 
+  /**
+ * Sorts the customers based on the clicked table header.
+ * @param {string} field - The name of the table header clicked.
+ */
   onHeaderClick(field: string): void {
     if (this.sortField === field) {
-        // If already sorting by this field, toggle the sort order
         this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
     } else {
         this.sortField = field;
@@ -64,8 +80,12 @@ export class CustomerComponent implements OnInit{
     this.applySorting();
   }
   
+
+  /**
+ * Applies sorting to the allCustomer array.
+ */
   applySorting(): void {
-    const sortField = this.sortField; // assign to a local variable
+    const sortField = this.sortField; 
   
     if (sortField) {
         this.allCustomer.sort((a, b) => {

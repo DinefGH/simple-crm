@@ -14,15 +14,19 @@ export class DialogAddCustomerComponent {
   loading = false;
 
 
-  saveCustomer() {
-    this.loading = true;
-    this.firestore
+  /**
+ * Saves a customer object to a Firestore database collection.
+ *
+ */
+saveCustomer() {
+  this.loading = true;
+  this.firestore
     .collection('customers')
     .add(this.customer.toJSON())
     .then((result: any) => {
       this.loading = false;
-      console.log('Adding customer finished', result);
       this.dialogRef.close();
     });
-  }
+}
+
 }

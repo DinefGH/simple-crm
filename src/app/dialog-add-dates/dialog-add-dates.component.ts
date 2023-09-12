@@ -16,11 +16,15 @@ export class DialogAddDatesComponent {
   loading = false;
   timeValue!: string;
 
-  saveDates() {
-    this.dates.datesDate = this.datesDate.getTime();
-    this.dates.timeValue = this.timeValue; 
-    this.loading = true;
-    this.firestore
+  /**
+ * Saves a dates object to a Firestore database collection.
+ *
+ */
+saveDates() {
+  this.dates.datesDate = this.datesDate.getTime();
+  this.dates.timeValue = this.timeValue; 
+  this.loading = true;
+  this.firestore
     .collection('dates')
     .add(this.dates.toJSON())
     .then((result: any) => {
@@ -28,5 +32,5 @@ export class DialogAddDatesComponent {
       console.log('Adding dates finished', result);
       this.dialogRef.close();
     });
-  }
+}
 }

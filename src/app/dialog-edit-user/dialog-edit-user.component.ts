@@ -15,15 +15,21 @@ user!: User;
 userId:  string | undefined = '';
 birthDate!: Date;
 
-saveEditUser(){
-    this.loading = true;
+/**
+ * Saves the edited user details to Firestore.
+ * Updates the user document with the provided user ID.
+ * Closes the dialog once the update is successful.
+ */
+saveEditUser() {
+  this.loading = true;
   this.firestore
-  .collection('users')
-  .doc(this.userId)
-  .update(this.user.toJSON())
-  .then(() => {
-  this.loading = false;
-  this.dialogRef.close();
-});
+    .collection('users')
+    .doc(this.userId)
+    .update(this.user.toJSON())
+    .then(() => {
+      this.loading = false;
+      this.dialogRef.close();
+    });
 }
+
 }

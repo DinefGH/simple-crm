@@ -23,6 +23,12 @@ export class CalendarComponent {
   allTasks: Tasks[] = [];
 
   constructor( public dialog: MatDialog, private firestore: AngularFirestore, private route: ActivatedRoute,) { }
+  
+  
+  /**
+ * Initializes the component and fetches dates and tasks from Firestore.
+ * Converts the fetched Dates and Tasks into calendar events and updates the calendarOptions.
+ */
   ngOnInit(): void {
     const dates$ = this.firestore.collection('dates').valueChanges({ idField: 'customIdDates' });
     const tasks$ = this.firestore.collection('tasks').valueChanges({ idField: 'customIdTasks' });
@@ -50,7 +56,18 @@ export class CalendarComponent {
     });
   }
 
+
+/** 
+ * Application title.
+ * @type {string}
+ */
   title = 'simple-crm';
+
+
+  /**
+ * Configuration object for the calendar view.
+ * @type {CalendarOptions}
+ */
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin],
@@ -59,10 +76,20 @@ export class CalendarComponent {
     ...{ dateClick: this.handleDateClick.bind(this) } as any
 };
 
+
+/**
+ * Handles the event when a date on the calendar is clicked.
+ * @param {any} arg - The clicked date details.
+ */
   handleDateClick(arg: any) {
     alert('Date clicked: ' + arg.dateStr);
   }
 
+
+  /**
+ * Converts Dates and Tasks into calendar events.
+ * @returns {Array} An array of calendar events.
+ */
   toCalendarEvent() {
     return [
         {

@@ -24,36 +24,49 @@ import {map, startWith} from 'rxjs/operators';
   areOptionsFiltered = false;
   
 
+/**
+ * Component initialization lifecycle hook.
+ * Sets up the filtered options for the control based on value changes.
+ */
+ngOnInit() {
+  this.filteredOptions = this.myControl.valueChanges.pipe(
+    startWith(''),
+    map(value => {
+      const filteredValues = this._filter(value || '');
+      this.areOptionsFiltered = filteredValues.length !== this.options.length;
+      return filteredValues;
+    })
+  );
+}
 
-  ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => {
-        const filteredValues = this._filter(value || '');
-        this.areOptionsFiltered = filteredValues.length !== this.options.length;
-        return filteredValues;
-      })
-        
-    );
-  }
+/**
+ * Filters the options based on the provided value.
+ * 
+ * @param {string} value - The value to filter the options by.
+ * @returns {string[]} The filtered list of options.
+ */
+private _filter(value: string): string[] {
+  const filterValue = value.toLowerCase();
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  return this.options.filter(option => option.toLowerCase().includes(filterValue));
+}
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
-
-  
-  saveEditTasks(){
-      this.loading = true;
-    this.firestore
+/**
+ * Saves the edited task details to Firestore.
+ * Updates the task document with the provided task ID.
+ * Closes the dialog once the update is successful.
+ */
+saveEditTasks() {
+  this.loading = true;
+  this.firestore
     .collection('tasks')
     .doc(this.tasksId)
     .update(this.tasks.toJSON())
     .then(() => {
-    this.loading = false;
-    this.dialogRef.close();
-  });
-  }
+      this.loading = false;
+      this.dialogRef.close();
+    });
+}
+
   }
   

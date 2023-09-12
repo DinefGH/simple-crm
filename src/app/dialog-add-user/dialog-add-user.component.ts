@@ -15,10 +15,17 @@ export class DialogAddUserComponent {
   birthDate!: Date;
   loading = false;
 
-  saveUser() {
-    this.user.birthDate = this.birthDate.getTime();
-    this.loading = true;
-    this.firestore
+  /**
+ * Saves a user to a Firestore collection.
+ *
+ * This function converts the user's birthDate to a timestamp, sets the loading state to true,
+ * and then attempts to add the user object to a Firestore collection. Upon successful addition,
+ * the loading state is reset to false and the dialog is closed.
+ */
+saveUser() {
+  this.user.birthDate = this.birthDate.getTime();
+  this.loading = true;
+  this.firestore
     .collection('users')
     .add(this.user.toJSON())
     .then((result: any) => {
@@ -26,5 +33,6 @@ export class DialogAddUserComponent {
       console.log('Adding user finished', result);
       this.dialogRef.close();
     });
-  }
+}
+
 }

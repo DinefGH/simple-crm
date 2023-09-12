@@ -18,15 +18,20 @@ customer!: Customer;
 customerId:  string | undefined = '';
 birthDate!: Date;
 
-saveEditCustomer(){
+/**
+ * Saves the new customer details to Firestore.
+ * Adds a new customer document to the 'customers' collection.
+ * Closes the dialog once the addition is successful and logs the result.
+ */
+saveEditCustomer() {
   this.loading = true;
   this.firestore
-  .collection('customers')
-  .add(this.customer.toJSON())
-  .then((result: any) => {
-    this.loading = false;
-    console.log('Adding customer finished', result);
-    this.dialogRef.close();
-  });
+    .collection('customers')
+    .add(this.customer.toJSON())
+    .then((result: any) => {
+      this.loading = false;
+      console.log('Adding customer finished', result);
+      this.dialogRef.close();
+    });
 }
 }

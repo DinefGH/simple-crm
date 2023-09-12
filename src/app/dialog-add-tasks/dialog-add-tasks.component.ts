@@ -44,11 +44,15 @@ export class DialogAddTasksComponent implements OnInit{
   }
 
 
-  saveTasks() {
-    this.tasks.dueDate = this.dueDate.getTime();
-    this.myControl = new FormControl(this.tasks.category || '');
-    this.loading = true;
-    this.firestore
+  /**
+ * Saves a task object to a Firestore database collection.
+ *
+ */
+saveTasks() {
+  this.tasks.dueDate = this.dueDate.getTime();
+  this.myControl = new FormControl(this.tasks.category || '');
+  this.loading = true;
+  this.firestore
     .collection('tasks')
     .add(this.tasks.toJSON())
     .then((result: any) => {
@@ -56,7 +60,8 @@ export class DialogAddTasksComponent implements OnInit{
       console.log('Adding tasks finished', result);
       this.dialogRef.close();
     });
-  }
+}
+
 }
 
 

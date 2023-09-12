@@ -20,6 +20,10 @@ import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit
   
     constructor (public dialog: MatDialog, private route: ActivatedRoute, private firestore: AngularFirestore ) {}
   
+
+    /**
+ * Lifecycle hook that is called after Angular has initialized the component's view.
+ */
     ngOnInit() {
       this.route.paramMap.subscribe( paramMap => {
         const id = this.customerId = paramMap.get('id')!;
@@ -28,7 +32,9 @@ import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit
     })
     }
   
-  
+  /**
+ * Fetches customer details based on the customer ID from Firestore.
+ */
     getCustomer() {
       this.firestore
       .collection('customers')
@@ -36,19 +42,19 @@ import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit
       .valueChanges()
       .subscribe(( customerParam: any) => {
         this.customer = new Customer(customerParam);
-        console.log('Retrieved customer', this.customer);
       });
     }
   
   
-  
+  /**
+ * Deletes a customer from Firestore based on the customer ID.
+ */
     deleteCustomerDetail() {
       this.firestore
       .collection('customers')
       .doc(this.customerId)
       .delete()
       .then(() => {
-          console.log('Customer successfully deleted!');
       })
       .catch((error) => {
           console.error('Error removing customer: ', error);
@@ -56,42 +62,28 @@ import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit
   }
    
   
+  /**
+ * Opens a dialog to edit the details of a customer.
+ */
     editCustomerDetail() {
       const dialog = this.dialog.open(DialogEditCustomerComponent);
       dialog.componentInstance.customer = new Customer(this.customer.toJSON());
       dialog.componentInstance.customerId = this.customerId;
     }
 
-
+/**
+ * Gets the background color based on the customer's name.
+ * @param {string} customerName - The name of the customer.
+ * @returns {string} - The color code for the background.
+ */
     getBackgroundColorCategory(customerName: string): string {
       switch (customerName) {
         case 'TechFusion Corp.': return '#928f61';
         case 'GreenEarth Energies': return '#639261';
         case 'Galactic AeroSystems': return '#926164';
         case 'Nova Pharmaceuticals': return '#696969';
-        default: return 'white';  // default color for unrecognized categories
+        default: return 'white'; 
       }
     }
-
-
-    
-
-//     getBackgroundColorPriority(priority: string): string {
-//       switch (priority) {
-//         case 'Urgent': return 'rgb(255, 61, 0)';
-//         case 'Medium': return 'rgb(255, 168, 0)';
-//         case 'Low': return 'rgb(122, 226, 41)';
-//         // ... and so on for the rest of your categories
-//         default: return 'white';  // default color for unrecognized categories
-//   }
-//   }
-
-//   getBackgroundColorStatus(status: string): string {
-//     switch (status) {
-//       case 'open': return 'red';
-//       case 'done': return 'blue';
-//       default: return 'white';  // default color for unrecognized categories
-// }
-// }
-}
+  }
   
