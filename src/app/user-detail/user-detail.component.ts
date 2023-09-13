@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-user-detail',
@@ -12,11 +13,12 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 })
 export class UserDetailComponent implements OnInit{
 
+  public someProperty!: string;
   userId:  string | undefined = '';
   user: User = new User();
 
 
-  constructor (public dialog: MatDialog, private route: ActivatedRoute, private firestore: AngularFirestore ) {}
+  constructor (public dialog: MatDialog, private route: ActivatedRoute, private firestore: AngularFirestore,  private cdRef: ChangeDetectorRef) {}
 
   /**
  * Initializes the component.
@@ -25,9 +27,10 @@ export class UserDetailComponent implements OnInit{
 ngOnInit() {
   this.route.paramMap.subscribe(paramMap => {
     const id = this.userId = paramMap.get('id')!;
-    console.log('GOT User ID', this.userId);
     this.getUser();
   });
+  this.someProperty = this.getRandomColor();
+  this.cdRef.detectChanges();
 }
 
 /**
@@ -69,10 +72,6 @@ editUserDetail() {
   dialog.componentInstance.userId = this.userId;
 }
 
-/**
- * Generates a random RGB color that is not too bright.
- * @returns {string} The generated RGB color string.
- */
 getRandomColor(): string {
   let color: string;
   let r: number;
@@ -84,20 +83,14 @@ getRandomColor(): string {
     g = Math.floor(Math.random() * 256);
     b = Math.floor(Math.random() * 256);
     color = `rgb(${r},${g},${b})`;
-  } while (this.isTooBright(r, g, b));
+  } while (this.isTooDark(r, g, b));
 
   return color;
 }
 
-/**
- * Checks if the provided RGB color is too bright.
- * @param {number} r - The red component of the color.
- * @param {number} g - The green component of the color.
- * @param {number} b - The blue component of the color.
- * @returns {boolean} True if the color is too bright, false otherwise.
- */
-isTooBright(r: number, g: number, b: number): boolean {
-  const threshold = 100; 
-  return r > threshold || g > threshold || b > threshold;
+isTooDark(r: number, g: number, b: number): boolean {
+  const threshold = 254; 
+  return r <= threshold && g <= threshold && b <= threshold;
 }
+
 }

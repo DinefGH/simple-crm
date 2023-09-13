@@ -82,7 +82,7 @@ import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit
         case 'GreenEarth Energies': return '#639261';
         case 'Galactic AeroSystems': return '#926164';
         case 'Nova Pharmaceuticals': return '#696969';
-        default: return 'white'; 
+        default: return '3f51b5'; 
       }
     }
   }

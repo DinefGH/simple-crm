@@ -3,6 +3,9 @@
     margin-bottom: 36px;
 }
 
+.card-shadow {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
 
 .add-tasks-btn {
     position: absolute;
@@ -16,7 +19,7 @@
     margin-top: 16px;
 
     tr {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        border-bottom: 1px solid rgb(230, 230, 230);
         &:first-child {
             cursor: unset;
             &:hover {
@@ -45,7 +48,7 @@
             }
         }
             &:hover {
-                background-color:   rgba(255, 255, 255, 0.1);
+                background-color:   rgb(230, 230, 230);
               }
             
         
@@ -54,7 +57,6 @@
 
 
     th {
-        color: rgba(255, 255, 255, .6);
         font-size: .875rem;
         font-weight: 500;
         text-align: start;
@@ -67,7 +69,7 @@ th {
     cursor: pointer;
 
     &:hover {
-        background-color: rgba(255, 255, 255, 0.1); 
+        background-color: rgb(230, 230, 230);
     }
 }
 

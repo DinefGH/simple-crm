@@ -27,10 +27,10 @@ saveEditCustomer() {
   this.loading = true;
   this.firestore
     .collection('customers')
-    .add(this.customer.toJSON())
-    .then((result: any) => {
+    .doc(this.customerId)
+    .update(this.customer.toJSON())
+    .then(() => {
       this.loading = false;
-      console.log('Adding customer finished', result);
       this.dialogRef.close();
     });
 }

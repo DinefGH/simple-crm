@@ -2,7 +2,7 @@
     Dates
 </div>
 
-<mat-card>
+<mat-card class="card-shadow">
     
 
     <mat-form-field class="search-input">
@@ -17,11 +17,15 @@
             <th (click)="onHeaderClick('datesDate')">DatesDate 
                 <span *ngIf="sortField === 'datesDate'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
             </th>
+            <th (click)="onHeaderClick('timeValue')">DatesDate 
+                <span *ngIf="sortField === 'timeValue'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+            </th>
         </tr>
         
         <tr *ngFor="let dates of filteredDates" [routerLink]="['/dates/' + dates.customIdDates]">
             <td>{{ dates.dateName }}</td>
             <td>{{ dates.datesDate | date: 'dd-MM-yyyy'}}</td>
+            <td>{{ dates.timeValue }}</td>
         </tr>
     </table>
   </mat-card>

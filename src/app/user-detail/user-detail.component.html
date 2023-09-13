@@ -1,5 +1,5 @@
-<mat-card [style.background-color]="getRandomColor()" class="user-detail-header">
-
+<mat-card class="card-shadow">
+    <mat-card [style.background-color]="someProperty" class="user-detail-header">
 
     <button mat-icon-button class="pin-right-upper-corner" 
      matTooltip="Edit/Delete User" [matMenuTriggerFor]="menu">
@@ -42,4 +42,5 @@
 <span>{{user.zipCode}} {{user.city}}</span>
     </mat-card-content>
 
+</mat-card>
 </mat-card>

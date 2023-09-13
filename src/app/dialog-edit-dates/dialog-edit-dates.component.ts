@@ -17,6 +17,7 @@ export class DialogEditDatesComponent {
   dates!: Dates;
   datesId:  string | undefined = '';
   datesDate!: Date;
+  timeValue!: string;
 
 /**
  * Saves the edited date details to Firestore.
@@ -24,9 +25,11 @@ export class DialogEditDatesComponent {
  * Closes the dialog once the update is successful.
  */
 saveEditDates() {
+  this.dates.datesDate = this.datesDate.getTime();
+  this.dates.timeValue = this.timeValue; 
   this.loading = true;
   this.firestore
-    .collection('usdatesers')
+    .collection('dates')
     .doc(this.datesId)
     .update(this.dates.toJSON())
     .then(() => {
