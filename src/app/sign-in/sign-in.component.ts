@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,56 +12,61 @@ import { AuthenticationService } from '../services/authentication.service';
 
 
 
-export class SignInComponent implements OnInit {
+export class SignInComponent {
   hide = true;
   form: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder,
-    private authenticationService: AuthenticationService,
+  constructor(
+    private fb: FormBuilder,
     private router: Router,
-    ) {}
-
-
-
-  ngOnInit(): void {
+    private afAuth: AngularFireAuth,
+  ) { 
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
+
+
   get email() {
-    return this.form.get('email')!;
+    return this.form.get('email');
   }
 
   get password() {
-    return this.form.get('password')!;
+    return this.form.get('password');
   }
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
+  public getErrorMessage() {
+    if (this.email?.hasError('required')) {
       return 'You must enter a value';
     }
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.email?.hasError('email') ? 'Not a valid email' : '';
   }
 
-  getPasswordErrorMessage() {
-    if (this.password.hasError('required')) {
+  public getPasswordErrorMessage() {
+    if (this.password?.hasError('required')) {
       return 'Password is required';
     }
-    if (this.password.hasError('minlength')) {
+    if (this.password?.hasError('minlength')) {
       return 'Password must be at least 8 characters long';
     }
     return '';
   }
 
-  login() {
 
-    this.authenticationService.signIn({
-      email: this.form.value.email,
-      password: this.form.value.password
-    }).subscribe(() =>{
-    this.router.navigate(['dashboard']);
-  }, (error: any) =>{});
+  login() {
+    const email = this.form.value.email;
+    const password = this.form.value.password;
+
+    this.afAuth.signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        // Successfully logged in
+        this.router.navigate(['dashboard']);
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("Login error", error);
+      });
   }
 }

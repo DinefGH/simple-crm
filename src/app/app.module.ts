@@ -60,6 +60,7 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 
+
 var firebaseConfig = {
   apiKey: "AIzaSyCUxwFH9TO3m4y7E1FPoSxDKtWlHDa8fpk",
   authDomain: "simple-crm-c83cb.firebaseapp.com",
