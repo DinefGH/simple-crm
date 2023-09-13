@@ -41,16 +41,26 @@ export class CalendarComponent {
       this.allTasks = tasksData.map((task: any) => new Tasks(task));
   
       // Convert Dates and Tasks objects to calendar events and update the calendarOptions
-      const dateEvents = this.allDates.map(date => ({
-        title: date.dateName,
-        date: new Date(date.datesDate).toISOString().split('T')[0]
-      }));
+      const dateEvents = this.allDates.map(date => {
+        const dateDate = new Date(date.datesDate);
+        const localDate = new Date(dateDate.getTime() - (dateDate.getTimezoneOffset() * 60000));
+        const dateStr = localDate.toISOString().split('T')[0];
+        return {
+          title: date.dateName,
+          date: dateStr
+        };
+      });
   
-      const taskEvents = this.allTasks.map(task => ({
-        title: task.title,
-        date: new Date(task.dueDate).toISOString().split('T')[0],
-        backgroundColor: '#ff3d00' ,
-      }));
+      const taskEvents = this.allTasks.map(task => {
+        const taskDate = new Date(task.dueDate);
+        const localDate = new Date(taskDate.getTime() - (taskDate.getTimezoneOffset() * 60000));
+        const dateStr = localDate.toISOString().split('T')[0];
+        return {
+          title: task.title,
+          date: dateStr,
+          backgroundColor: '#ff3d00',
+        };
+      });
   
       this.calendarOptions.events = [...dateEvents, ...taskEvents];
     });

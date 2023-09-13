@@ -4,13 +4,13 @@
     <div mat-dialog-content>
 
     <div class="">
-            <mat-form-field class="mr-16 mb-16 w-100" appearance="outline">
+            <mat-form-field class="mr-16 mt-8 mb-16 w-100" appearance="outline">
                 <mat-label>Title</mat-label>
                 <input [disabled]="loading" [(ngModel)]="tasks.title" matInput placeholder="Title">
                 <mat-hint>Please enter a title</mat-hint>
             </mat-form-field>
 
-              <mat-form-field class="mr-16 mb-16 w-100" appearance="outline">
+              <mat-form-field class="mr-16  w-100" appearance="outline">
                 <mat-label>Category</mat-label>
                 <input [(ngModel)]="tasks.category" type="text"
                        placeholder="Pick one"
