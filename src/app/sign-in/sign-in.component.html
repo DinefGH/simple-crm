@@ -1,5 +1,5 @@
 <div class="sign-in-container">
-<div mat-dialog-content>
+  <mat-dialog-content>
     <h1 mat-dialog-title>Enter with your account</h1>
   
     <form class="form" [formGroup]="form">
@@ -23,8 +23,10 @@
       <div class="button-container" mat-dialog-actions>
         <button  mat-fab  extended  color="accent">Sign Up</button>
         <button (click)="login()" mat-fab extended color="primary" [disabled]="!form.valid">Login</button>
-        
     </div>
+    <button type="button" (click)="guestLogin()" mat-fab extended color="primary" >Guest Login</button>
     </form>
-  </div>
+  </mat-dialog-content>
+
+  
 </div>

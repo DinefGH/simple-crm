@@ -11,24 +11,25 @@ import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import { DatesComponent } from './dates/dates.component';
 import { DatesDetailComponent } from './dates-detail/dates-detail.component';
-
+import { AuthRootComponent } from './auth-root/auth-root.component';
+import { MainComponent } from './main/main.component';
+import { AuthGuard } from 'src/app/services/auth.guard';
 
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent  },
-  {path: 'dashboard', component: DashboardComponent  },
-  {path: 'user', component: UserComponent  },
+  { path: 'sign-in', component: SignInComponent },
+  { path: '', canActivate: [AuthGuard], component: MainComponent, children: [
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'user', component: UserComponent },
   {path: 'user/:id', component: UserDetailComponent  },
   {path: 'tasks', component: TasksComponent  },
   {path: 'tasks/:id', component: TasksDetailComponent  },
   {path: 'calendar', component: CalendarComponent},
-  {path: 'sign-in', component: SignInComponent},
   {path: 'customer', component: CustomerComponent  },
   {path: 'dates', component: DatesComponent  },
   {path: 'dates/:id', component: DatesDetailComponent  },
   {path: 'customer/:id', component: CustomerDetailComponent  },
-
-
+]}
 ];
 
 @NgModule({

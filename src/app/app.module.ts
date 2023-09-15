@@ -56,6 +56,8 @@ import { DialogEditDatesComponent } from './dialog-edit-dates/dialog-edit-dates.
 import { DatesDetailComponent } from './dates-detail/dates-detail.component';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {MatSelectModule} from '@angular/material/select';
+import { AuthRootComponent } from './auth-root/auth-root.component';
+import { MainComponent } from './main/main.component';
 
 
 
@@ -93,6 +95,8 @@ var firebaseConfig = {
     DialogAddDatesComponent,
     DialogEditDatesComponent,
     DatesDetailComponent,
+    AuthRootComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
