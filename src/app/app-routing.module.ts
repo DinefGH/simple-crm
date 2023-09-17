@@ -14,10 +14,13 @@ import { DatesDetailComponent } from './dates-detail/dates-detail.component';
 import { AuthRootComponent } from './auth-root/auth-root.component';
 import { MainComponent } from './main/main.component';
 import { AuthGuard } from 'src/app/services/auth.guard';
-
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
+  {path: 'sign-up', component: SignUpComponent },
+  {path: 'recover-password', component: RecoverPasswordComponent },
   { path: '', canActivate: [AuthGuard], component: MainComponent, children: [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'user', component: UserComponent },
@@ -27,8 +30,10 @@ const routes: Routes = [
   {path: 'calendar', component: CalendarComponent},
   {path: 'customer', component: CustomerComponent  },
   {path: 'dates', component: DatesComponent  },
+  
   {path: 'dates/:id', component: DatesDetailComponent  },
   {path: 'customer/:id', component: CustomerDetailComponent  },
+  
 ]}
 ];
 

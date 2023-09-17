@@ -58,6 +58,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {MatSelectModule} from '@angular/material/select';
 import { AuthRootComponent } from './auth-root/auth-root.component';
 import { MainComponent } from './main/main.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 
 
 
@@ -97,6 +99,8 @@ var firebaseConfig = {
     DatesDetailComponent,
     AuthRootComponent,
     MainComponent,
+    SignUpComponent,
+    RecoverPasswordComponent,
   ],
   imports: [
     BrowserModule,

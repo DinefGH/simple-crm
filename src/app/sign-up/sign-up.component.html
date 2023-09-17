@@ -1,0 +1,51 @@
+<div class="sign-in-container">
+    <mat-dialog-content class="sign-up-dialog">
+      <h1 class="h1-sign-up" mat-dialog-title>Sign up new account</h1>
+    
+      <form class="form" [formGroup]="form">
+        <mat-form-field>
+          <mat-label>Enter your name</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="name" required>
+          <mat-error *ngIf="form.get('name')?.invalid">Name is required</mat-error>     
+        </mat-form-field>
+    
+
+        <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="email" required>
+            <mat-error *ngIf="form.get('email')?.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-label>Enter your password</mat-label>
+          <input #passwordInput matInput placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="form.get('password')?.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+  
+
+        <mat-form-field>
+            <mat-label>Confirm your password</mat-label>
+            <input matInput placeholder="Confirm Password" [type]="hide ? 'password' : 'text'" formControlName="confirmPassword" required>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="form.get('confirmPassword')?.invalid">{{getConfirmPasswordErrorMessage()}}</mat-error>          </mat-form-field>
+
+
+            <div class="checkbox-container">
+                <label class="custom-checkbox">
+                  <input type="checkbox" id="privacyPolicy" formControlName="hasAcceptedPrivacyPolicy">
+                  <span class="checkmark"></span>
+                  I accept the <a class="privacy-policy-link" routerLink="imprint-site">Privacy Policy</a>
+                </label>
+              </div>
+
+        <div class="button-signUp-container" mat-dialog-actions>
+            <button (click)="backSignUp()" class="button-recover-password"  mat-fab  extended  cdkFocusInitial>Back</button>
+            <button (click)="signUp()" mat-fab extended color="primary" [disabled]="!form.valid">Sign Up</button>
+        </div>
+      </form>
+    </mat-dialog-content>
+  
+    
+  </div>

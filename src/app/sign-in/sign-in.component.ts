@@ -99,4 +99,14 @@ export class SignInComponent {
         console.error("Guest login error", error);
       });
   }
+
+  
+  goToSignUp() {
+    this.router.navigate(['sign-up']);
+  }
+
+
+  goToRecover() {
+    this.router.navigate(['recover-password']);
+  }
 }
