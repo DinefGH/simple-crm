@@ -16,6 +16,9 @@ import { MainComponent } from './main/main.component';
 import { AuthGuard } from 'src/app/services/auth.guard';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
@@ -30,10 +33,10 @@ const routes: Routes = [
   {path: 'calendar', component: CalendarComponent},
   {path: 'customer', component: CustomerComponent  },
   {path: 'dates', component: DatesComponent  },
-  
   {path: 'dates/:id', component: DatesDetailComponent  },
   {path: 'customer/:id', component: CustomerDetailComponent  },
-  
+  {path: 'privacy-policy', component: PrivacyPolicyComponent  },
+  {path: 'legal-notice', component: LegalNoticeComponent  },
 ]}
 ];
 
