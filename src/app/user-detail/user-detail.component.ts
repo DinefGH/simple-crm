@@ -43,7 +43,6 @@ getUser() {
     .valueChanges()
     .subscribe((userParam: any) => {
       this.user = new User(userParam);
-      console.log('Retrieved user', this.user);
     });
 }
 
@@ -56,7 +55,6 @@ deleteUserDetail() {
     .doc(this.userId)
     .delete()
     .then(() => {
-      console.log('User successfully deleted!');
     })
     .catch((error) => {
       console.error('Error removing user: ', error);

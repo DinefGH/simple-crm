@@ -68,7 +68,6 @@ export class DatesDetailComponent implements OnInit{
     .doc(this.datesId)
     .delete()
     .then(() => {
-        console.log('Dates successfully deleted!');
     })
     .catch((error) => {
         console.error('Error removing dates: ', error);

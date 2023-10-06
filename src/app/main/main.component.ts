@@ -50,12 +50,12 @@ onResize(event: Event) {
 
     logout() {
       this.authService.logout().then(() => {
-        this.router.navigate(['/sign-in']);  // Navigate back to the login screen
+        this.router.navigate(['/sign-in']); 
       });
     }
 
     setDrawerProperties(width: number) {
-      if (width < 768) {
+      if (width < 1048) {
         this.mode = 'over';
         this.position = 'bottom';
         this.opened = false;

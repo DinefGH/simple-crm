@@ -31,7 +31,6 @@ ngOnInit(): void {
     .collection('tasks')
     .valueChanges({idField: 'customIdTitle'})
     .subscribe((changes: any) => {
-      console.log('Received Tasks changes from DB', changes);
       this.allTasks = changes;
     });
 }

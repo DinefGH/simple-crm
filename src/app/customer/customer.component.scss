@@ -7,7 +7,7 @@
 .add-tasks-btn {
     position: absolute;
     right: 56px;
-    bottom: 56px;
+    top: 65px;
 }
 
 .card-shadow {
@@ -19,7 +19,7 @@
     margin-top: 16px;
 
     tr {
-        border-bottom: 1px solid  rgb(230, 230, 230);
+        border-bottom: 2px solid rgb(150, 150, 150);
         &:first-child {
             cursor: unset;
             &:hover {
@@ -74,8 +74,27 @@ th {
 }
 
 .truncate-text{
-    white-space: nowrap;        /* Prevents the text from wrapping into new lines */
-    overflow: hidden;          /* Hides the text that overflows the container */
-    text-overflow: ellipsis;   /* Display ... when the text is truncated */
+    white-space: nowrap;        
+    overflow: hidden;          
+    text-overflow: ellipsis;   
     max-width: 150px;  
 }
+
+@media (max-width: 768px) {
+    th, td {
+      display: block;
+    }
+    th {
+      display: none; 
+    }
+
+    td:before {
+      content: attr(data-label); 
+      float: left;
+      font-weight: bold;
+    }
+
+    .pl {
+        padding-left: 16px;
+    }
+  }

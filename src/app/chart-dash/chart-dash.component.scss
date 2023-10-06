@@ -3,13 +3,12 @@
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
     border-radius: 4px;
-    width: 100%;
     padding: 16px;
     position: relative;
 }
 
 .h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 8px;
 }
 
@@ -33,7 +32,7 @@
 
 .chart-container {
     background-color: rgb(255, 255, 255);
-    width: 50%;
+    width: 50%!important;
     height: 30vh;
 }
 
@@ -61,17 +60,30 @@
 
 
 .customer-container {
-    width: 100%;
+    width: 97%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 16px;
+    padding: 16px 0px 16px 16px; 
 }
 
 
-@media screen and (max-width: 1200px) {
 
+
+@media (max-width: 1048px) {
     .chart-overview-container {
-    flex-direction: column;
-}
+        flex-direction: column;
+    }
+
+    .chart-container {
+        width: 100%!important;
+        height: auto!important;;
+    }
+
+    .annual-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+  }
+
 }

@@ -27,7 +27,6 @@ import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit
     ngOnInit() {
       this.route.paramMap.subscribe( paramMap => {
         const id = this.customerId = paramMap.get('id')!;
-        console.log('GOT Customer ID', this.customerId);
         this.getCustomer();
     })
     }

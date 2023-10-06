@@ -60,8 +60,8 @@ import { AuthRootComponent } from './auth-root/auth-root.component';
 import { MainComponent } from './main/main.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
-import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { LegalBeforeLoginComponent } from './legal-before-login/legal-before-login.component';
 
 
 
@@ -103,8 +103,8 @@ var firebaseConfig = {
     MainComponent,
     SignUpComponent,
     RecoverPasswordComponent,
-    PrivacyPolicyComponent,
     LegalNoticeComponent,
+    LegalBeforeLoginComponent,
   ],
   imports: [
     BrowserModule,

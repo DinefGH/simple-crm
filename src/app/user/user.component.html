@@ -1,55 +1,55 @@
 <div class="user-headline">
-    User 
+    User
 </div>
 
 <mat-card class="card-shadow">
-    
+
 
     <mat-form-field class="search-input">
         <input matInput [(ngModel)]="searchTerm" placeholder="Search users...">
     </mat-form-field>
 
-    <table class="user-table">
-        <tr>
-            <th (click)="onHeaderClick('firstName')">First Name
-                <span *ngIf="sortField === 'firstName'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('lastName')">Last Name 
-                <span *ngIf="sortField === 'lastName'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('birthdate')">Birthdate 
-                <span *ngIf="sortField === 'birthdate'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('email')">E-Mail 
-                <span *ngIf="sortField === 'email'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('phoneNumber')">Phone number 
-                <span *ngIf="sortField === 'phoneNumber'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('street')">Adress 
-                <span *ngIf="sortField === 'street'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('zipCode')">Zipcode 
-                <span *ngIf="sortField === 'zipCode'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-            <th (click)="onHeaderClick('city')">City 
-                <span *ngIf="sortField === 'city'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
-            </th>
-        </tr>
-        
-        <tr *ngFor="let user of filteredUsers" [routerLink]="['/user/' + user.customIdName]">
-            <td>{{ user.firstName }}</td>
-            <td>{{ user.lastName }}</td>
-            <td>{{ user.birthDate | date: 'dd-MM-yyyy'}}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.phoneNumber }}</td>
-            <td>{{ user.street }}</td>
-            <td>{{ user.zipCode }}</td>
-            <td>{{ user.city }}</td>
-        </tr>
-    </table>
-  </mat-card>
-  
+        <table class="user-table">
+            <tr>
+                <th (click)="onHeaderClick('firstName')">First Name
+                    <span *ngIf="sortField === 'firstName'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+                </th>
+                <th (click)="onHeaderClick('lastName')">Last Name
+                    <span *ngIf="sortField === 'lastName'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+                </th>
+                <th (click)="onHeaderClick('birthdate')">Birthdate
+                    <span *ngIf="sortField === 'birthdate'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+                </th>
+                <th (click)="onHeaderClick('email')">E-Mail
+                    <span *ngIf="sortField === 'email'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+                </th>
+                <th (click)="onHeaderClick('phoneNumber')">Phone number
+                    <span *ngIf="sortField === 'phoneNumber'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+                </th>
+                <th (click)="onHeaderClick('street')">Adress
+                    <span *ngIf="sortField === 'street'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+                </th>
+                <th (click)="onHeaderClick('zipCode')">Zipcode
+                    <span *ngIf="sortField === 'zipCode'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+                </th>
+                <th (click)="onHeaderClick('city')">City
+                    <span *ngIf="sortField === 'city'">{{ sortOrder === 'asc' ? '↑' : '↓' }}</span>
+                </th>
+            </tr>
+
+            <tr class="" *ngFor="let user of filteredUsers" [routerLink]="['/user/' + user.customIdName]">
+                <td class="pl" data-label="First Name:">&nbsp;{{ user.firstName }}</td>
+                <td class="pl" data-label="Last Name:">&nbsp;{{ user.lastName }}</td>
+                <td class="pl" data-label="Birth Date:">&nbsp;{{ user.birthDate | date: 'dd-MM-yyyy' }}</td>
+                <td class="pl" data-label="E-Mail:">&nbsp;{{ user.email }}</td>
+                <td class="pl" data-label="Phone Number:">&nbsp;{{ user.phoneNumber }}</td>
+                <td class="pl" data-label="Street:">&nbsp;{{ user.street }}</td>
+                <td class="pl" data-label="Zip Code:">&nbsp;{{ user.zipCode }}</td>
+                <td class="pl" data-label="City:">&nbsp;{{ user.city }}</td>
+            </tr>
+        </table>
+</mat-card>
+
 
 <button (click)="openDialog()" class="add-user-btn" mat-fab color="primary" matTooltipPosition="above"
     matTooltip="Add user">

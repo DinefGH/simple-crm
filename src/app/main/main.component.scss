@@ -97,3 +97,10 @@ mat-toolbar-row, mat-toolbar {
 }
 }
 
+@media (max-width: 1024px) {
+    .router-container {
+        padding: 80px 8px 56px 8px;
+        background-color: rgb(250, 250, 250);
+    }
+  }
+

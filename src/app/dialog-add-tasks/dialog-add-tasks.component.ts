@@ -57,7 +57,6 @@ saveTasks() {
     .add(this.tasks.toJSON())
     .then((result: any) => {
       this.loading = false;
-      console.log('Adding tasks finished', result);
       this.dialogRef.close();
     });
 }

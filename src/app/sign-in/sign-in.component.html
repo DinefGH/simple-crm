@@ -24,7 +24,7 @@
         <button (click)="goToSignUp()"  mat-fab  extended  color="accent">Sign Up</button>
         <button (click)="login()" mat-fab extended color="primary" [disabled]="!form.valid">Login</button>
     </div>
-    <button type="button" (click)="guestLogin()" mat-fab extended color="primary" >Guest Login</button>
+    <button type="button" (click)="guestLogin()" mat-fab extended color="primary" [routerLink]="['/dashboard/']" routerLinkActive="router-link-active" >Guest Login</button>
     </form>
   </mat-dialog-content>
 

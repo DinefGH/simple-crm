@@ -81,10 +81,6 @@ export class SignUpComponent {
 
 
   async signUp() {
-    // Debugging statements
-    console.log('Form Valid:', this.form.valid);
-    console.log('Form Value:', this.form.value);
-  
     if (this.form.valid) {
       const { name, email, password } = this.form.value;
   
@@ -107,5 +103,9 @@ export class SignUpComponent {
   }
   backSignUp() {
     this.router.navigate(['sign-in']);
+  }
+
+  legal() {
+    window.open('/legal-notice', '_blank');
   }
 }  

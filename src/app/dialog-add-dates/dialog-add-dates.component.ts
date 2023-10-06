@@ -29,7 +29,6 @@ saveDates() {
     .add(this.dates.toJSON())
     .then((result: any) => {
       this.loading = false;
-      console.log('Adding dates finished', result);
       this.dialogRef.close();
     });
 }

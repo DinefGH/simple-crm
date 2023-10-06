@@ -28,7 +28,6 @@ import { DialogEditTasksComponent } from '../dialog-edit-tasks/dialog-edit-tasks
 ngOnInit() {
   this.route.paramMap.subscribe(paramMap => {
     const id = this.tasksId = paramMap.get('id')!;
-    console.log('GOT Tasks ID', this.tasksId);
     this.getTasks();
   });
 }
@@ -43,7 +42,6 @@ getTasks() {
     .valueChanges()
     .subscribe((tasksParam: any) => {
       this.tasks = new Tasks(tasksParam);
-      console.log('Retrieved tasks', this.tasks);
     });
 }
 
@@ -56,7 +54,6 @@ deleteTaskDetail() {
     .doc(this.tasksId)
     .delete()
     .then(() => {
-      console.log('Task successfully deleted!');
     })
     .catch((error) => {
       console.error('Error removing task: ', error);

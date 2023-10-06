@@ -37,7 +37,6 @@ export class DatesComponent implements OnInit {
       .collection('dates')
       .valueChanges({ idField: 'customIdDates' })
       .subscribe((changes: any) => {
-        console.log('Received changes from DB', changes)
         this.allDates = changes;
       });
   }

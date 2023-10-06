@@ -16,17 +16,18 @@ import { MainComponent } from './main/main.component';
 import { AuthGuard } from 'src/app/services/auth.guard';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
-import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
-
+import { LegalBeforeLoginComponent } from './legal-before-login/legal-before-login.component';
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   {path: 'sign-up', component: SignUpComponent },
   {path: 'recover-password', component: RecoverPasswordComponent },
+  {path: 'legal-notice', component: LegalBeforeLoginComponent },
+  {path: 'sign-up', component: SignUpComponent },
   { path: '', canActivate: [AuthGuard], component: MainComponent, children: [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'user', component: UserComponent },
+  
   {path: 'user/:id', component: UserDetailComponent  },
   {path: 'tasks', component: TasksComponent  },
   {path: 'tasks/:id', component: TasksDetailComponent  },
@@ -35,8 +36,8 @@ const routes: Routes = [
   {path: 'dates', component: DatesComponent  },
   {path: 'dates/:id', component: DatesDetailComponent  },
   {path: 'customer/:id', component: CustomerDetailComponent  },
-  {path: 'privacy-policy', component: PrivacyPolicyComponent  },
-  {path: 'legal-notice', component: LegalNoticeComponent  },
+  {path: 'legal.notice', component: LegalNoticeComponent  },
+  { path: 'user', component: UserComponent },
 ]}
 ];
 

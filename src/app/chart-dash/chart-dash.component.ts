@@ -34,7 +34,6 @@ export class ChartDashComponent {
       .collection('customers')
       .valueChanges({idField: 'customIdCustomerName'})
       .subscribe((changes: any) => {
-        console.log('Received changes from DB', changes);
         this.allCustomer = changes;
       });
   }

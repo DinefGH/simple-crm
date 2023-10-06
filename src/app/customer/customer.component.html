@@ -25,10 +25,10 @@
         </tr>
         
         <tr *ngFor="let customer of filteredCustomer" [routerLink]="['/customer/' + customer.customIdCustomerName]">
-            <td class="truncate-text">{{ customer.customerName }}</td>
-            <td class="truncate-text">{{ customer.email }}</td>
-            <td  class="truncate-text">{{ customer.phoneNumber }}</td>
-            <td class="truncate-text">{{ customer.invoiced }}</td>
+            <td class="pl" data-label="Customer Name:">&nbsp;{{ customer.customerName }}</td>
+            <td class="pl" data-label="Email:">&nbsp;{{ customer.email }}</td>
+            <td class="pl" data-label="Phone Number:">&nbsp;{{ customer.phoneNumber }}</td>
+            <td class="pl" data-label="Invoiced:">&nbsp;{{ customer.invoiced }}</td>
 
         </tr>
 

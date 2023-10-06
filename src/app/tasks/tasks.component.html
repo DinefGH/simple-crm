@@ -34,13 +34,13 @@
         </tr>
         
         <tr *ngFor="let tasks of filteredTasks" [routerLink]="['/tasks/' + tasks.customIdTitle]">
-            <td>{{ tasks.title }}</td>
-            <td>{{ tasks.category }}</td>
-            <td>{{ tasks.descreption }}</td>
-            <td>{{ tasks.dueDate | date: 'dd-MM-yyyy'}}</td>
-            <td>{{ tasks.priority }}</td>
-            <td>{{ tasks.subtasks }}</td>
-            <td>{{ tasks.status }}</td>
+            <td class="pl" data-label="Title:">&nbsp;{{ tasks.title }}</td>
+            <td class="pl" data-label="Category:">&nbsp;{{ tasks.category }}</td>
+            <td class="pl descreption-tr" data-label="Descreption:">&nbsp;{{ tasks.descreption }}</td>
+            <td class="pl" data-label="Due Date:">&nbsp;{{ tasks.dueDate | date: 'dd-MM-yyyy'}}</td>
+            <td class="pl" data-label="Priority:">&nbsp;{{ tasks.priority }}</td>
+            <td class="pl" data-label="Subtasks:">&nbsp;{{ tasks.subtasks }}</td>
+            <td class="pl" data-label="Status:">&nbsp;{{ tasks.status }}</td>
         </tr>
 
     </table>

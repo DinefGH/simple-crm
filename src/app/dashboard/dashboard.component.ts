@@ -9,7 +9,7 @@ import { Customer } from 'src/models/customer.class';
 import { getWeek, format } from 'date-fns';
 import { ChartOptions } from 'chart.js';
 import { ChartConfiguration } from 'chart.js';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -45,7 +45,7 @@ public calenderweek!: number;
 
 
 
-  constructor(private datePipe: DatePipe, public dialog: MatDialog, private firestore: AngularFirestore) { }
+  constructor(private datePipe: DatePipe, private router: Router,public dialog: MatDialog, private firestore: AngularFirestore) {   }
   
   
   /**
@@ -56,7 +56,6 @@ public calenderweek!: number;
     .collection('users')
     .valueChanges({idField: 'customIdName'})
     .subscribe(( changes: any) => {
-      console.log('Received changes from DB', changes)
       this.allUsers = changes;
     });
 
@@ -66,7 +65,6 @@ public calenderweek!: number;
   .collection('tasks')
   .valueChanges({idField: 'customIdTitle'})
   .subscribe(( changes: any) => {
-    console.log('Received Tasks changes from DB', changes)
     this.allTasks = changes;
     this.tasksList = this.allTasks;
   });
@@ -77,9 +75,10 @@ public calenderweek!: number;
   .collection('customers')
   .valueChanges({idField: 'customIdCustomerName'})
   .subscribe(( changes: any) => {
-    console.log('Received Customer changes from DB', changes)
     this.allCustomer = changes;
   });
+
+
 
 
   

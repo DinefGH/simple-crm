@@ -1,4 +1,13 @@
-<div class="sign-in-container">
+<mat-toolbar color="primary" class="fixed">
+  <mat-toolbar-row>
+    <span>Simple CRM</span>
+
+  </mat-toolbar-row>
+
+
+</mat-toolbar>
+
+  <div class="sign-in-container">
     <mat-dialog-content class="sign-up-dialog">
       <h1 class="h1-sign-up" mat-dialog-title>Sign up new account</h1>
     
@@ -36,7 +45,7 @@
                 <label class="custom-checkbox">
                   <input type="checkbox" id="privacyPolicy" formControlName="hasAcceptedPrivacyPolicy">
                   <span class="checkmark"></span>
-                  I accept the <a class="privacy-policy-link" routerLink="imprint-site">Privacy Policy</a>
+                  I accept the <span class="privacy-policy-link" (click)="legal()">Privacy Policy</span>
                 </label>
               </div>
 

@@ -30,7 +30,6 @@ saveUser() {
     .add(this.user.toJSON())
     .then((result: any) => {
       this.loading = false;
-      console.log('Adding user finished', result);
       this.dialogRef.close();
     });
 }

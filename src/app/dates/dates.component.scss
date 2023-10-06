@@ -71,3 +71,10 @@ th {
         background-color: rgb(230, 230, 230);
     }
 }
+
+
+@media (max-width: 768px) {
+    .add-dates-btn {
+        top: 67px;
+    }
+  }

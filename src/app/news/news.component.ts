@@ -26,10 +26,8 @@ export class NewsComponent implements OnInit {
         'from=2022-07-06' +
         'sortBy=popularity&' +
         'apiKey=f88c081bf50049828d366ad46d43e1c3';
-      console.log(url);
       let response = await fetch(url);
       let data = await response.json();
-      console.log('', data);
   
       // Initialize loadedNews as an empty array
       this.loadedNews = [];

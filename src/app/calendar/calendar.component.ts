@@ -34,8 +34,6 @@ export class CalendarComponent {
     const tasks$ = this.firestore.collection('tasks').valueChanges({ idField: 'customIdTasks' });
   
     combineLatest([dates$, tasks$]).subscribe(([datesData, tasksData]) => {
-      console.log('Received dates from DB', datesData);
-      console.log('Received tasks from DB', tasksData);
   
       this.allDates = datesData.map((date: any) => new Dates(date));
       this.allTasks = tasksData.map((task: any) => new Tasks(task));
@@ -83,17 +81,8 @@ export class CalendarComponent {
     plugins: [dayGridPlugin],
     events: [],
     displayEventTime: false,
-    ...{ dateClick: this.handleDateClick.bind(this) } as any
 };
 
-
-/**
- * Handles the event when a date on the calendar is clicked.
- * @param {any} arg - The clicked date details.
- */
-  handleDateClick(arg: any) {
-    alert('Date clicked: ' + arg.dateStr);
-  }
 
 
   /**
