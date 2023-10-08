@@ -4,6 +4,9 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { HostListener } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
+import { NavigationEnd } from '@angular/router';
 
 type MatDrawerMode = 'over' | 'push' | 'side';
 
@@ -20,6 +23,7 @@ type MatDrawerMode = 'over' | 'push' | 'side';
     isAuthenticated: boolean = false;
     opened: boolean = true
 
+    @ViewChild('drawer') drawer!: MatDrawer;
 
     mode: MatDrawerMode = 'side';
     position = 'start';
@@ -42,6 +46,12 @@ onResize(event: Event) {
         }
       );
       this.setDrawerProperties(window.innerWidth);
+
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd && this.mode === 'over') {
+          this.drawer.close();
+        }
+      });
     }
   
     ngOnDestroy() {

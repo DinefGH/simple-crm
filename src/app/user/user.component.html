@@ -38,7 +38,7 @@
             </tr>
 
             <tr class="" *ngFor="let user of filteredUsers" [routerLink]="['/user/' + user.customIdName]">
-                <td class="pl" data-label="First Name:">&nbsp;{{ user.firstName }}</td>
+                <td class="pl mtR" data-label="First Name:">&nbsp;{{ user.firstName }}</td>
                 <td class="pl" data-label="Last Name:">&nbsp;{{ user.lastName }}</td>
                 <td class="pl" data-label="Birth Date:">&nbsp;{{ user.birthDate | date: 'dd-MM-yyyy' }}</td>
                 <td class="pl" data-label="E-Mail:">&nbsp;{{ user.email }}</td>

@@ -2,3 +2,22 @@
     display: flex;
     justify-content: center;
 }
+
+@media (max-width: 992px) { 
+
+    .dialog-container {
+        width: 80vw !important;
+    }
+    
+     }
+    
+    
+     @media (max-width: 700px) { 
+        .responsive-dialog-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .wR-100 {
+            width: 100% !important;
+        }
+     }
