@@ -27,7 +27,7 @@
     margin-top: 16px;
 
     tr {
-        border-bottom: 1px solid rgb(230, 230, 230);
+        border-bottom: 2px solid rgb(150, 150, 150);
         &:first-child {
             cursor: unset;
             &:hover {
@@ -100,6 +100,10 @@ th {
     .pl {
         padding-left: 16px;
         white-space: normal!important;
+    }
+
+    .mtR {
+        margin-top:  40px;
     }
   }
 

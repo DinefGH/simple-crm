@@ -118,6 +118,12 @@
     border-radius: 4px;
 }
 
+.calender-week-responsive {
+    display: none;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
 @media (max-width: 1024px) {
     .overview-container {
         flex-direction: column;
@@ -128,5 +134,21 @@
   @media (max-width: 400px) {
     .digitalClock {
         width: 90px;
+    }
+
+    .calender-week {
+        display: none;
+    }
+
+    .calender-week-responsive {
+        display: block;
+    }
+
+    .date-container {
+        width: 100px;
+    }
+
+    .overview-card {
+        font-size: 1rem;
     }
   }

@@ -43,7 +43,7 @@
         <div *ngFor="let customer of allCustomer" class="-customer-progress-container">
           <div class="progress-target-container">
             <span class="progress-in-procent">{{ customer.customerName }}</span>
-            <span class="target">€{{ customer.invoiced.toFixed(1) }}M</span>
+            <span class="target">€{{customer.invoiced.toFixed(1)}}M</span>
           </div>
           <div class="progress-bar-background">
             <div class="progress-bar-fill" [style.width]="(customer.invoiced / 7 * 100) + '%'"></div>

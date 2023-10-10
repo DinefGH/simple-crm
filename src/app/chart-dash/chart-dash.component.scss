@@ -87,3 +87,19 @@
   }
 
 }
+
+@media (max-width: 350px) {
+
+    .chart-overview-container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .invoiced-container {
+        left: 8px;
+    }
+
+    .h1 {
+        font-size: 1.1rem;
+    }
+}

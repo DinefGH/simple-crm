@@ -25,7 +25,6 @@
 }
 
 .user-details {
-    margin: 0 0 0 32px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -58,4 +57,11 @@
     height: 21px;
     display: flex;
     align-items: baseline;
+}
+
+@media (max-width: 992px) {  
+    .user-details {
+        margin: 0;
+        flex-direction: column;
+    }
 }

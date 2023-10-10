@@ -34,7 +34,7 @@
         </tr>
         
         <tr *ngFor="let tasks of filteredTasks" [routerLink]="['/tasks/' + tasks.customIdTitle]">
-            <td class="pl" data-label="Title:">&nbsp;{{ tasks.title }}</td>
+            <td class="pl mtR" data-label="Title:">&nbsp;{{ tasks.title }}</td>
             <td class="pl" data-label="Category:">&nbsp;{{ tasks.category }}</td>
             <td class="pl descreption-tr" data-label="Descreption:">&nbsp;{{ tasks.descreption }}</td>
             <td class="pl" data-label="Due Date:">&nbsp;{{ tasks.dueDate | date: 'dd-MM-yyyy'}}</td>
